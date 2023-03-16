@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Src/Actors/Dog.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Objects/DraggableFood.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/Scripts/Timer.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 44.6154, 226.923 )
@@ -160,3 +161,69 @@ scale = Vector2( 0.862069, 0.862069 )
 texture = ExtResource( 3 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Food2" type="Panel" parent="InterfaceLayer"]
+margin_left = 149.0
+margin_top = 15.0
+margin_right = 869.0
+margin_bottom = 71.0
+
+[node name="Label" type="Label" parent="InterfaceLayer/Food2"]
+margin_left = 18.0
+margin_top = 20.0
+margin_right = 78.0
+margin_bottom = 34.0
+text = "Food"
+
+[node name="Timer2" type="Control" parent="InterfaceLayer"]
+margin_left = 11.0
+margin_top = 21.0
+margin_right = 110.0
+margin_bottom = 60.0
+script = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="InterfaceLayer/Timer2"]
+margin_left = 18.0
+margin_top = 12.0
+margin_right = 78.0
+margin_bottom = 26.0
+text = "00:00"
+align = 1
+
+[node name="Money2" type="Panel" parent="InterfaceLayer"]
+margin_left = 906.0
+margin_top = 21.0
+margin_right = 1005.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="InterfaceLayer/Money2"]
+margin_left = 18.0
+margin_top = 12.0
+margin_right = 78.0
+margin_bottom = 26.0
+text = "100$"
+align = 1
+
+[node name="Music2" type="Panel" parent="InterfaceLayer"]
+margin_left = 765.0
+margin_top = 514.0
+margin_right = 1003.0
+margin_bottom = 553.0
+
+[node name="Label" type="Label" parent="InterfaceLayer/Music2"]
+margin_left = 18.0
+margin_top = 14.0
+margin_right = 78.0
+margin_bottom = 28.0
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="InterfaceLayer/Music2"]
+margin_left = 68.0
+margin_top = 13.0
+margin_right = 222.0
+margin_bottom = 29.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="Timer" to="Draggables/Cabbage" method="_on_Timer_timeout"]

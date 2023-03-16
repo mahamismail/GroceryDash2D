@@ -19,4 +19,4 @@ position = Vector2( 21.5, -8.5 )
 scale = Vector2( 0.759804, 0.759804 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="." to="." method="_on_Cart_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Cart_body_entered"]
