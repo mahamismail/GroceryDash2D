@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
 [ext_resource path="res://Assets/Backgrounds/isles.png" type="Texture" id=3]
 [ext_resource path="res://Src/Objects/IsleShelf1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/IsleShelf2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/UserInterface/GameUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Actors/Boy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/Actors/Granny.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Src/Actors/Dog.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/Objects/DraggableFood.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 44.6154, 226.923 )
@@ -64,15 +70,46 @@ position = Vector2( 8219, 290 )
 [node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 7564, 289 )
 
+[node name="Draggables" type="Node2D" parent="."]
+
+[node name="Cabbage" parent="Draggables" instance=ExtResource( 11 )]
+position = Vector2( 182, 195 )
+
+[node name="Cabbage2" parent="Draggables" instance=ExtResource( 11 )]
+position = Vector2( 614, 260 )
+
+[node name="Cabbage3" parent="Draggables" instance=ExtResource( 11 )]
+position = Vector2( 1165, 186 )
+
+[node name="Cabbage4" parent="Draggables" instance=ExtResource( 11 )]
+position = Vector2( 1626, 260 )
+
+[node name="Cabbage5" parent="Draggables" instance=ExtResource( 11 )]
+position = Vector2( 2844, 270 )
+
+[node name="Granny" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6744, 371 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Boy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4381, 427 )
+
+[node name="Dog" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2264, 461 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 46, 389 )
-scale = Vector2( 1.3, 1.3 )
+scale = Vector2( 1.2, 1.2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 318.462, -75.3846 )
 current = true
 drag_margin_v_enabled = true
 drag_margin_top = 1.0
+
+[node name="Cart" parent="Player" instance=ExtResource( 10 )]
+position = Vector2( 75.8333, 27.5 )
+scale = Vector2( 0.9, 0.9 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -121,3 +158,5 @@ motion_mirroring = Vector2( 1024, 0 )
 position = Vector2( 0.889817, -0.499988 )
 scale = Vector2( 0.862069, 0.862069 )
 texture = ExtResource( 3 )
+
+[node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]

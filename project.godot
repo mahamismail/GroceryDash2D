@@ -8,6 +8,40 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Enemy",
+"class": "Boy",
+"language": "GDScript",
+"path": "res://Src/Scripts/Boy.gd"
+}, {
+"base": "Enemy",
+"class": "Dog",
+"language": "GDScript",
+"path": "res://Src/Scripts/Dog.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Draggable",
+"language": "GDScript",
+"path": "res://Src/Scripts/Draggable.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Src/Scripts/Enemy.gd"
+}, {
+"base": "Enemy",
+"class": "Granny",
+"language": "GDScript",
+"path": "res://Src/Scripts/Granny.gd"
+} ]
+_global_script_class_icons={
+"Boy": "",
+"Dog": "",
+"Draggable": "",
+"Enemy": "",
+"Granny": ""
+}
+
 [application]
 
 config/name="GroceryDash"
@@ -43,6 +77,18 @@ jump={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+pick_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Players"
+2d_physics/layer_2="Isles"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Draggables"
 
 [physics]
 
