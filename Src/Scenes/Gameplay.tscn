@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
+[ext_resource path="res://Assets/Backgrounds/isles.png" type="Texture" id=3]
+[ext_resource path="res://Src/Objects/IsleShelf1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Objects/IsleShelf2.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44.6154, 226.923 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2650, 21.1538 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Isles" type="Node2D" parent="."]
+
+[node name="IsleShelf3" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( -67, 290 )
+
+[node name="IsleShelf4" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 1511, 290 )
+
+[node name="IsleShelf2" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 1049, 290 )
+
+[node name="IsleShelf1" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 394, 289 )
+
+[node name="IsleShelf5" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 3203, 290 )
+
+[node name="IsleShelf6" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 2741, 290 )
+
+[node name="IsleShelf7" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 2086, 289 )
+
+[node name="IsleShelf8" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 5107, 290 )
+
+[node name="IsleShelf9" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 4645, 290 )
+
+[node name="IsleShelf10" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 3990, 289 )
+
+[node name="IsleShelf11" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 6799, 290 )
+
+[node name="IsleShelf12" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 6337, 290 )
+
+[node name="IsleShelf13" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 5682, 289 )
+
+[node name="IsleShelf14" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 8681, 290 )
+
+[node name="IsleShelf15" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 8219, 290 )
+
+[node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
+position = Vector2( 7564, 289 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 46, 389 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 318.462, -75.3846 )
+current = true
+drag_margin_v_enabled = true
+drag_margin_top = 1.0
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+position = Vector2( -52.0001, 532 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+position = Vector2( -34.6154, -183.077 )
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 6933, 536 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+position = Vector2( -34.6154, -183.077 )
+shape = SubResource( 2 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( -52.0001, 532 )
+scale = Vector2( 1.3, 1.3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 2650, 23.4615 )
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 512, 288 )
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 7.62939e-06, -1.14441e-05 )
+scale = Vector2( 0.863568, 0.863568 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+position = Vector2( 512, 288 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 0.889817, -0.499988 )
+scale = Vector2( 0.862069, 0.862069 )
+texture = ExtResource( 3 )
