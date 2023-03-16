@@ -89,6 +89,7 @@ pick_up={
 2d_physics/layer_2="Isles"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Draggables"
+2d_physics/layer_5="WinWall"
 
 [physics]
 

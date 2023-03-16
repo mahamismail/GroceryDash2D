@@ -1,12 +1,16 @@
 extends KinematicBody2D
 
+signal lose_health()
 
 onready var game_Path = get_node(@"../../")
+onready var Wall2 = get_node(@"/root/Main/Walls/Wall2")
 
 var velocity = Vector2(0,-1)
 const SPEED = 180;
 const GRAVITY = 3000;
 const JUMP_FORCE = -900;
+var health = 3
+	
 
 func _physics_process(_delta):
 	# Check input for horizontal movement
@@ -28,10 +32,22 @@ func _physics_process(_delta):
 	# Apply friction to x-velocity
 	velocity.x = lerp(velocity.x , 0 , 0.2)
 
-# Function called when the Area2D body enters a collision
-func _on_Area2D_body_entered(body):
+# Function called when the player's Area2D body enters a collision
+func _on_Area2D_body_entered(body): # Make sure the Area2D of the player extends beyond the Collider2D of the player, else might not get detected.
+	
 	# Check if the colliding body is an Enemy
 	if body is Enemy:
 		# Print message and end game
 		print("Enemy attacked")
-		queue_free();
+		if (!health == 0):
+			health = health-1;
+		else:
+			queue_free();
+			get_tree().change_scene("res://Src/Scenes/LosePage.tscn");
+			
+	# Check if it's the temporary End Wall
+	if (body == Wall2):
+		get_tree().change_scene("res://Src/Scenes/WinScene.tscn");
+				
+		
+

@@ -8,6 +8,7 @@ radius = 30.2153
 height = 81.5533
 
 [node name="Dog" type="KinematicBody2D"]
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

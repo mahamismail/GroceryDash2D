@@ -12,5 +12,3 @@ func _on_Timer_timeout():
 
 func update_timer():
 	$Label.text = "Time left: " + str(time_left) + " seconds"
-
-# add other methods for handling game over, resetting the timer, etc.
