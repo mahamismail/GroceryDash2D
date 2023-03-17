@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Scripts/Dog.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Draggable",
 "language": "GDScript",
 "path": "res://Src/Scripts/Draggable.gd"
@@ -90,6 +90,7 @@ pick_up={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Draggables"
 2d_physics/layer_5="WinWall"
+2d_physics/layer_6="Ground"
 
 [physics]
 
