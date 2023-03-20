@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Characters/Player2.png" type="Texture" id=1]
 [ext_resource path="res://Src/Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 18, 84.5 )
@@ -29,5 +30,9 @@ collision_mask = 20
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1, 0 )
 shape = SubResource( 1 )
+
+[node name="CartArea" parent="." instance=ExtResource( 3 )]
+position = Vector2( 75, 33 )
+scale = Vector2( 0.8, 0.8 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

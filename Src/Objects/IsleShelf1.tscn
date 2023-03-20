@@ -15,15 +15,19 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.449219, -70.5 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 2.15625, 1.5 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( -1.29688, 75 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2( -5.83008, 151.5 )
 shape = SubResource( 1 )
+disabled = true

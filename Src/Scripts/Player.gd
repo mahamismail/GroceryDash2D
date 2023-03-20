@@ -4,6 +4,7 @@ signal lose_health()
 
 onready var game_Path = get_node(@"../../")
 onready var Wall2 = get_node(@"/root/Main/Walls/Wall2")
+onready var cartArea = $CartArea
 
 var velocity = Vector2(0,-1)
 const SPEED = 180;

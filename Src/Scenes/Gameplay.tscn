@@ -9,7 +9,7 @@
 [ext_resource path="res://Src/Actors/Boy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Actors/Granny.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Actors/Dog.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/UserInterface/ItemInventory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Objects/DraggableFood.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/Scripts/Timer.gd" type="Script" id=12]
 [ext_resource path="res://Src/Objects/DraggableTrial.tscn" type="PackedScene" id=13]
@@ -72,28 +72,32 @@ position = Vector2( 8219, 290 )
 [node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 7564, 289 )
 
-[node name="Draggables" type="Node2D" parent="."]
+[node name="Cabbage" parent="." instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 198, 196 )
 
-[node name="Cabbage6" parent="Draggables" instance=ExtResource( 13 )]
-position = Vector2( 317, 267 )
+[node name="Draggables Trial" type="Node2D" parent="."]
 
-[node name="Cabbage" parent="Draggables" instance=ExtResource( 11 )]
+[node name="Cabbage6" parent="Draggables Trial" instance=ExtResource( 13 )]
+position = Vector2( 621, 189 )
+
+[node name="Cabbage" parent="Draggables Trial" instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 182, 195 )
 
-[node name="Cabbage2" parent="Draggables" instance=ExtResource( 11 )]
+[node name="Cabbage2" parent="Draggables Trial" instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 614, 260 )
 
-[node name="Cabbage3" parent="Draggables" instance=ExtResource( 11 )]
+[node name="Cabbage3" parent="Draggables Trial" instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 1165, 186 )
 
-[node name="Cabbage4" parent="Draggables" instance=ExtResource( 11 )]
+[node name="Cabbage4" parent="Draggables Trial" instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 1626, 260 )
 
-[node name="Cabbage5" parent="Draggables" instance=ExtResource( 11 )]
+[node name="Cabbage5" parent="Draggables Trial" instance=ExtResource( 11 )]
 visible = false
 position = Vector2( 2844, 270 )
 
@@ -108,7 +112,7 @@ position = Vector2( 4381, 427 )
 position = Vector2( 6403, 427 )
 
 [node name="Dog" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2264, 461 )
+position = Vector2( 556, 459 )
 
 [node name="Dog2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2582, 461 )
@@ -122,10 +126,6 @@ position = Vector2( 318.462, -75.3846 )
 current = true
 drag_margin_v_enabled = true
 drag_margin_top = 1.0
-
-[node name="Cart" parent="Player" instance=ExtResource( 10 )]
-position = Vector2( 75.8333, 27.5 )
-scale = Vector2( 0.9, 0.9 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -156,6 +156,10 @@ collision_mask = 47
 position = Vector2( 2650, 23.4615 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 2624.62, -430 )
+shape = SubResource( 1 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -180,18 +184,11 @@ texture = ExtResource( 3 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
 
-[node name="Food" type="Panel" parent="InterfaceLayer"]
-margin_left = 149.0
-margin_top = 15.0
-margin_right = 869.0
-margin_bottom = 71.0
-
-[node name="Label" type="Label" parent="InterfaceLayer/Food"]
-margin_left = 18.0
-margin_top = 20.0
-margin_right = 78.0
-margin_bottom = 34.0
-text = "Food"
+[node name="Food" parent="InterfaceLayer" instance=ExtResource( 10 )]
+margin_left = 146.0
+margin_top = 12.0
+margin_right = 866.0
+margin_bottom = 68.0
 
 [node name="Timer" type="Control" parent="InterfaceLayer"]
 margin_left = 11.0
@@ -250,4 +247,4 @@ margin_bottom = 29.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
 
-[connection signal="timeout" from="Timer" to="Draggables/Cabbage" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="Draggables Trial/Cabbage" method="_on_Timer_timeout"]

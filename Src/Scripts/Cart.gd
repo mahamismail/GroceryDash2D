@@ -11,8 +11,10 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Cart_body_entered(body):
-	#Check if the left mouse button is pressed
-	if !Input.is_mouse_button_pressed(BUTTON_LEFT):
-		# Check if the entered body is a Draggable object
-		if body is Draggable:
+	pass
+
+func _on_Cart_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body is Draggable:
+			print("Item touched cart!")
 			body.queue_free()
+	
