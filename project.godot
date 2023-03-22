@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Scripts/Dog.gd"
 }, {
-"base": "RigidBody2D",
-"class": "Draggable",
-"language": "GDScript",
-"path": "res://Src/Scripts/Draggable.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -33,13 +28,24 @@ _global_script_classes=[ {
 "class": "Granny",
 "language": "GDScript",
 "path": "res://Src/Scripts/Granny.gd"
+}, {
+"base": "Resource",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Src/Scripts/Inventory.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Src/Scripts/Item.gd"
 } ]
 _global_script_class_icons={
 "Boy": "",
 "Dog": "",
-"Draggable": "",
 "Enemy": "",
-"Granny": ""
+"Granny": "",
+"Inventory": "",
+"Item": ""
 }
 
 [application]
