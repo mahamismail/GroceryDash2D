@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-var item
 var inventory = preload("res://Src/UserInterface/Inventory.tres")
 
 var selected = false
@@ -9,8 +8,8 @@ onready var collision_shape = $CollisionBody
 onready var sprite = $Sprite
 
 func _ready():
-	sprite.texture = item.texture
-
+	pass
+	
 func _process(_delta):
 	if selected:
 		followMouse()

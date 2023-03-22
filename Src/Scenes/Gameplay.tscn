@@ -165,6 +165,12 @@ texture = ExtResource( 3 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
 
+[node name="InventoryContainer" parent="InterfaceLayer" instance=ExtResource( 10 )]
+margin_left = 151.0
+margin_top = 19.0
+margin_right = 871.0
+margin_bottom = 75.0
+
 [node name="Timer" type="Control" parent="InterfaceLayer"]
 margin_left = 11.0
 margin_top = 21.0
@@ -221,9 +227,3 @@ margin_bottom = 29.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
-
-[node name="InventoryContainer" parent="." instance=ExtResource( 10 )]
-margin_left = 145.0
-margin_top = 14.0
-margin_right = 865.0
-margin_bottom = 70.0

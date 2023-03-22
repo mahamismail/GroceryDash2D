@@ -27,6 +27,8 @@ func add_item(item):
 			if items[i].name == item.name:
 				items[i].amount += 1
 				item_added = true
+				var item_index = i
+				emit_signal("items_changed", [item_index])
 				print("item added again!")
 				print(items[i].amount)
 				break
