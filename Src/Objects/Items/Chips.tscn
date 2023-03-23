@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Src/Scripts/Draggables.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Draggables/chips.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.3865, 15.5045 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.5049, 17.1114 )
+
+[node name="Chips" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 32
+mode = 1
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.784375, 0.784375 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1, -9.53674e-07 )
+rotation = -1.59533
+shape = SubResource( 1 )
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 1 )
+rotation = -1.54134
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
