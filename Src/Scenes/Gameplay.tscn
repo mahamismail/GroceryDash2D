@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Src/Objects/Base_Item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Audio/Thrashing Around.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Src/Scenes/Game.gd" type="Script" id=15]
+[ext_resource path="res://Src/Objects/IsleEntry.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Draggables/chips.png" type="Texture" id=17]
 [ext_resource path="res://Src/Scripts/HealthBar.gd" type="Script" id=18]
 
@@ -28,6 +29,21 @@ extents = Vector2( 2650, 21.1538 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
+
+[node name="Isle Entry" parent="." instance=ExtResource( 16 )]
+position = Vector2( 775, 108 )
+
+[node name="Isle Entry2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2471, 108 )
+
+[node name="Isle Entry3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3594, 108 )
+
+[node name="Isle Entry4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 4365, 108 )
+
+[node name="Isle Entry5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 6081, 108 )
 
 [node name="Isles" type="Node2D" parent="."]
 

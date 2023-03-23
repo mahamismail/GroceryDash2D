@@ -64,6 +64,7 @@ func _on_HSlider_value_changed(value):
 #When the timer times out
 func _on_granny_collision_mask_timeout():
 	granny.set_collision_mask_bit(0, false)
+	granny.is_colliding = false
 	
 	grannyTimer.hide() #Hide the progress bar when the timer times out
 	grannyTimer.value += 1 #Update the value of the progress bar each time the timer fires
