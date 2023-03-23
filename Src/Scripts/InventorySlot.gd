@@ -2,7 +2,7 @@ extends HBoxContainer
 
 onready var itemTextureRect = $ItemTextureRect
 onready var itemLabel = $ItemLabel
-var inventory = preload("res://Src/UserInterface/Inventory.tres")
+var inventory = preload("res://Src/UserInterface/Inventory/Inventory.tres")
 
 #func _ready():
 #	inventory.connect("item_entered_cart", self, "display_item")

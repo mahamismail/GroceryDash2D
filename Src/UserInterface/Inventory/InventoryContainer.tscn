@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Src/UserInterface/InventoryDisplay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/UserInterface/Inventory/InventoryDisplay.tscn" type="PackedScene" id=2]
 
 [node name="InventoryContainer" type="Panel"]
 margin_right = 720.0

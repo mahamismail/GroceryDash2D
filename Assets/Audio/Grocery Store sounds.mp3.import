@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Grocery Store sounds.mp3-bb540dbf4479ff8070e14dad68a2cc56.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Grocery Store sounds.mp3"
+dest_files=[ "res://.import/Grocery Store sounds.mp3-bb540dbf4479ff8070e14dad68a2cc56.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

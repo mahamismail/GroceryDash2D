@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var inventory = preload("res://Src/UserInterface/Inventory.tres")
+var inventory = preload("res://Src/UserInterface/Inventory/Inventory.tres")
 
 var selected = false
 var velocity = get_linear_velocity()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Thrashing Around.mp3-3cc4dce9f80c09da4e450db6c5bb19de.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Thrashing Around.mp3"
+dest_files=[ "res://.import/Thrashing Around.mp3-3cc4dce9f80c09da4e450db6c5bb19de.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

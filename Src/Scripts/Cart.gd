@@ -1,7 +1,7 @@
 extends Node
 
 signal item_entered_cart(item)
-var inventory = preload("res://Src/UserInterface/Inventory.tres")
+var inventory = preload("res://Src/UserInterface/Inventory/Inventory.tres")
 var item
 
 # Called when the node enters the scene tree for the first time.

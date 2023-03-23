@@ -37,15 +37,9 @@ func _physics_process(_delta):
 func _on_Area2D_body_entered(body): # Make sure the Area2D of the player extends beyond the Collider2D of the player, else might not get detected.
 	
 	# Check if the colliding body is an Enemy
-	if body is Enemy:
-		# Print message and end game
-		print("Enemy attacked")
-		if (!health == 0):
-			health = health-1;
-		else:
-			queue_free();
-			get_tree().change_scene("res://Src/Scenes/LosePage.tscn");
-			
+
+
+
 	# Check if it's the temporary End Wall
 	if (body == Wall2):
 		get_tree().change_scene("res://Src/Scenes/WinScene.tscn");
