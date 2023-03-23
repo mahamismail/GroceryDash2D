@@ -26,4 +26,13 @@ collision_layer = 0
 position = Vector2( 0, 2 )
 polygon = PoolVector2Array( -1, -147, -19, -141, -33, -123, -44, -106, -53, -99, -49, -93, -38, -86, -31, -81, -37, -73, -41, -64, -52, -48, -56, -29, -59, -11, -53, 1, -50, 3, -58, 14, -45, 21, -45, 49, -39, 75, -32, 91, -29, 110, -31, 125, -39, 143, -35, 150, -21, 150, -13, 150, 30, 151, 35, 137, 28, 122, 38, 100, 39, 90, 49, 71, 56, 44, 56, 24, 53, 12, 60, 5, 44, -10, 36, -37, 31, -59, 27, -67, 31, -68, 18, -81, 35, -85, 50, -95, 51, -100, 37, -113, 22, -137, 7, -146 )
 
+[node name="GrannyTimer" type="ProgressBar" parent="."]
+visible = false
+margin_left = 36.0
+margin_top = -169.0
+margin_right = 50.0
+margin_bottom = -92.0
+rect_rotation = 89.5968
+max_value = 5.0
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]

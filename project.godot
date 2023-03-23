@@ -54,6 +54,10 @@ config/name="GroceryDash"
 run/main_scene="res://Src/Scenes/TitlePage.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Src/Scripts/Global.gd"
+
 [display]
 
 window/size/height=576

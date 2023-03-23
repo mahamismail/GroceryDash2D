@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Characters/Boy.png" type="Texture" id=1]
 [ext_resource path="res://Src/Scripts/Boy.gd" type="Script" id=2]
@@ -6,8 +6,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 39.4013
 height = 117.142
-
-[sub_resource type="CapsuleShape2D" id=2]
 
 [node name="Boy" type="KinematicBody2D"]
 collision_layer = 0
@@ -25,7 +23,7 @@ shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
 
-[node name="AttackAreaShape" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource( 2 )
+[node name="AttackAreaShape" type="CollisionPolygon2D" parent="AttackArea"]
+polygon = PoolVector2Array( -52, -11, -41, -16, -37, -25, -38, -54, -15, -65, 15, -51, 11, -11, 26, -6, 35, 18, 52, 52, 49, 53, 37, 45, 16, 53, 4, 45, -8, 45, -12, 65, -34, 62, -20, 53, -16, 32, -11, 29, -16, 12, -29, 16 )
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]

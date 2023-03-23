@@ -3,10 +3,15 @@ extends HBoxContainer
 onready var itemTextureRect = $ItemTextureRect
 onready var itemLabel = $ItemLabel
 var inventory = preload("res://Src/UserInterface/Inventory/Inventory.tres")
+#onready var cart = get_node("../../../../Player/Cart")
+onready var cart = load("res://Src/Actors/Cart.tscn")
 
-#func _ready():
-#	inventory.connect("item_entered_cart", self, "display_item")
-#	pass
+func _ready():
+	#ERROR: wanted to get the item that enters the cart, 
+	#and then use inventory based functions to add the item to the Slot. 
+	#But none of my code created signals work.
+	#cart.connect("item_entered_cart", self, "_item_entered_cart")
+	pass
 
 func display_item(item):
 	if item is Item:
@@ -18,3 +23,4 @@ func display_item(item):
 
 func _item_entered_cart(item):
 	inventory.add_item(item)
+	display_item(item)

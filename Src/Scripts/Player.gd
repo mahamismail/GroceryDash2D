@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-#signal lose_health()
+signal lose_money()
+signal lose_health()
 
 onready var game_Path = get_node(@"../../")
 onready var Wall2 = get_node(@"/root/Main/Walls/Wall2")
@@ -10,7 +11,6 @@ var velocity = Vector2(0,-1)
 const SPEED = 180;
 const GRAVITY = 3000;
 const JUMP_FORCE = -900;
-var health = 3
 	
 
 func _physics_process(_delta):
@@ -44,5 +44,9 @@ func _on_Area2D_body_entered(body): # Make sure the Area2D of the player extends
 	if (body == Wall2):
 		get_tree().change_scene("res://Src/Scenes/WinScene.tscn");
 				
-		
 
+func _you_Died():
+	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
+	queue_free() # make the player invisible.
+	game_Path.end_Game()
+	pass # Replace with function body.
