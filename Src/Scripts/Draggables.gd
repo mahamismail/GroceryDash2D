@@ -1,12 +1,12 @@
+class_name Draggables
 extends RigidBody2D
 # NOTE: This RigidBodies are set to static mode so the will not move in the beginning
-
-var inventory = preload("res://Src/UserInterface/Inventory/Inventory.tres")
 
 var selected = false 
 var velocity = get_linear_velocity() #getting velocity of the rigidbody
 onready var collision_shape = $CollisionBody
 onready var sprite = $Sprite
+
 
 func _ready():
 	pass
@@ -34,5 +34,9 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 #stop the item from rotating wildly.
 #func _integrate_forces(_state):
 #	self.rotation_degrees = 0
+
+
+
+
 
 

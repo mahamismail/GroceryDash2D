@@ -5,10 +5,10 @@ var health = Global.health
 onready var health_label = $Amount
 onready var player = get_node("../../Player")
 
-signal you_Died()
+
 
 func _ready():
-	player.connect("lose_health", self, "_lose_health")
+	Global.connect("lose_health", self, "_lose_health")
 	
 func _lose_health(health_bar: ProgressBar):
 	# When player collides with enemy, this function is called.

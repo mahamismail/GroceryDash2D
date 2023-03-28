@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Draggables/empty.png" type="Texture" id=1]
-[ext_resource path="res://Src/Scripts/InventorySlot.gd" type="Script" id=2]
+[ext_resource path="res://Src/Scripts/Inventory_New.gd" type="Script" id=2]
 
 [node name="InventorySlot" type="HBoxContainer"]
 margin_right = 84.0
@@ -9,17 +9,13 @@ margin_bottom = 63.0
 custom_constants/separation = 8
 script = ExtResource( 2 )
 
-[node name="ItemTextureRect" type="TextureRect" parent="."]
-margin_right = 67.0
-margin_bottom = 67.0
-rect_min_size = Vector2( 30, 30 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 49, 34 )
 texture = ExtResource( 1 )
-stretch_mode = 4
+hframes = 5
 
-[node name="ItemLabel" type="Label" parent="."]
-margin_left = 75.0
-margin_top = 26.0
-margin_right = 83.0
-margin_bottom = 40.0
+[node name="Label" type="Label" parent="."]
+margin_top = 24.0
+margin_right = 8.0
+margin_bottom = 38.0
 text = "0"
-valign = 1

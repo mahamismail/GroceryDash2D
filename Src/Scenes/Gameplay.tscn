@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
@@ -14,13 +14,14 @@
 [ext_resource path="res://Assets/Audio/Grocery Store sounds.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Src/Objects/Base_Item.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Audio/Thrashing Around.mp3" type="AudioStream" id=14]
-[ext_resource path="res://Src/Scenes/Game.gd" type="Script" id=15]
+[ext_resource path="res://Src/Scripts/Game.gd" type="Script" id=15]
 [ext_resource path="res://Src/Objects/IsleEntry.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Draggables/chips.png" type="Texture" id=17]
 [ext_resource path="res://Src/Scripts/HealthBar.gd" type="Script" id=18]
 [ext_resource path="res://Src/Objects/Items/Cheese.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Src/Objects/Items/Chips.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Src/Objects/Items/Chocolate.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Src/Objects/Base_Item_Redo.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 44.6154, 226.923 )
@@ -98,35 +99,50 @@ position = Vector2( 8219, 290 )
 [node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 7564, 289 )
 
-[node name="Draggables Trial" type="Node2D" parent="."]
+[node name="Draggables" type="Node2D" parent="."]
+visible = false
 
-[node name="Cabbage" parent="Draggables Trial" instance=ExtResource( 13 )]
+[node name="Cabbage" parent="Draggables" instance=ExtResource( 13 )]
 position = Vector2( 524, 194 )
 mass = 3.0
 gravity_scale = 3.0
 
-[node name="Cabbage2" parent="Draggables Trial" instance=ExtResource( 13 )]
+[node name="Cabbage2" parent="Draggables" instance=ExtResource( 13 )]
 position = Vector2( 968, 264 )
 
-[node name="Cabbage3" parent="Draggables Trial" instance=ExtResource( 13 )]
+[node name="Cabbage3" parent="Draggables" instance=ExtResource( 13 )]
 position = Vector2( 1161, 338 )
 
-[node name="Cheese" parent="Draggables Trial" instance=ExtResource( 19 )]
+[node name="Cheese" parent="Draggables" instance=ExtResource( 19 )]
 position = Vector2( 1083, 195 )
 
-[node name="Cheese2" parent="Draggables Trial" instance=ExtResource( 19 )]
+[node name="Cheese2" parent="Draggables" instance=ExtResource( 19 )]
 position = Vector2( 1887, 201 )
 
-[node name="Cheese3" parent="Draggables Trial" instance=ExtResource( 19 )]
+[node name="Cheese3" parent="Draggables" instance=ExtResource( 19 )]
 
-[node name="Chips" parent="Draggables Trial" instance=ExtResource( 20 )]
+[node name="Chips" parent="Draggables" instance=ExtResource( 20 )]
 position = Vector2( 1490, 192 )
 
-[node name="Cheese4" parent="Draggables Trial" instance=ExtResource( 19 )]
+[node name="Cheese4" parent="Draggables" instance=ExtResource( 19 )]
 position = Vector2( 1332, 342 )
 
-[node name="Choc" parent="Draggables Trial" instance=ExtResource( 21 )]
+[node name="Choc" parent="Draggables" instance=ExtResource( 21 )]
 position = Vector2( 1849, 270 )
+
+[node name="Draggables_trials" type="Node2D" parent="."]
+
+[node name="Base_Item" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 288, 198 )
+
+[node name="Base_Item2" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 448, 267 )
+
+[node name="Base_Item3" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1005, 197 )
+
+[node name="Base_Item4" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1068, 342 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 46, 389 )
