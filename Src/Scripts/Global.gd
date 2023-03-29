@@ -8,6 +8,7 @@ signal lose_health(lost_amount)
 signal gain_health(gain_amount)
 signal make_dizzy()
 signal start_floating()
+signal throwing_last_item()
 
 var health = 20
 var money = 200

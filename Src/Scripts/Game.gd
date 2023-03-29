@@ -11,6 +11,10 @@ var damageTimer = null #For Player
 var base_item = load("res://Src/Objects/Base_Item_Redo.tscn")
 onready var all_item_children = get_node("Draggables_trials")
 
+
+func _ready():
+	pass
+	
 #Changing the volume of music in headphones
 func _on_HSlider_value_changed(value):
 	print("music volume changed")

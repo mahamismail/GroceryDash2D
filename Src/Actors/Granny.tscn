@@ -20,7 +20,7 @@ position = Vector2( 0, -19 )
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 256
+collision_layer = 1280
 
 [node name="AttackAreaShape" type="CollisionPolygon2D" parent="AttackArea"]
 position = Vector2( 0, 2 )

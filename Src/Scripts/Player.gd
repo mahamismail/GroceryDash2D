@@ -1,23 +1,30 @@
 extends KinematicBody2D
 
-onready var game_Path = get_node(@"../../")
 onready var Wall2 = get_node(@"/root/Main/Walls/Wall2")
-onready var cartArea = $CartArea
+#VARS FOR CART ENTRY
+onready var cartArea = $CartArea #path for Cart
 
-onready var dizzySlider1 = get_node("../InterfaceLayer/DizzySliders/HSlider")
-onready var dizzySlider2 = get_node("../InterfaceLayer/DizzySliders/HSlider2")
-onready var dizzyView = get_node("../InterfaceLayer/DizzyView")
-onready var dizzySliders = get_node("../InterfaceLayer/DizzySliders")
-var randomNum = rand_range(0, 10)
-var dizzySlider2_value
-var dizzySlider1_value
+#VARS FOR DIZZY SLIDERS
+onready var dizzySlider1 = get_node("../InterfaceLayer/DizzySliders/HSlider") #getting path for top slider 
+onready var dizzySlider2 = get_node("../InterfaceLayer/DizzySliders/HSlider2") #getting path for bottom slider
+onready var dizzyView = get_node("../InterfaceLayer/DizzyView") # getting the red rect
+onready var dizzySliders = get_node("../InterfaceLayer/DizzySliders") #getting the sliders panel
+var randomNum = rand_range(0, 10) #generating a random number
+var dizzySlider2_value # value of bottom slider
+var dizzySlider1_value # value of top slider
+var isSliderCorrect = false # Top Slider's value is correct
+var isSlider2Correct = false #Bottom Slider's  value is correct
+export var isDizzy = false # Player is not dizzy right now
 
-var isSliderCorrect = false
-var isSlider2Correct = false
+#VAR FOR FLOATING FROM EATING CHOCOLATE 
+export var isFloating = false # Player is not floating right now
 
-export var isDizzy = false
-export var isFloating = false
+#VAR FOR THROWING ITEMS AT OBSTACLES
+onready var projectile = preload("res://Src/Objects/Projectile_Item.tscn") #grocery item as a projectile
+var isThrowing = false 
+const THROW_FORCE = 500 # the force item can be thrown at
 
+#VAR FOR PLAYER MOVEMENT
 var velocity = Vector2(0,-1)
 const SPEED = 180;
 const GRAVITY = 3000;
@@ -33,39 +40,39 @@ func _ready():
 	
 func _physics_process(_delta):
 	
-	if isDizzy:
-		var speed = 50
-		var jump_force = -400;
+	if isDizzy: #if player is dizzy
+		var speed = 50 # make speed slower than usual
+		var jump_force = -400; # make jump force slower than usual
 		# Check input for horizontal movement
 		if Input.is_action_pressed("move_right"):
 			velocity.x = speed;
 		if Input.is_action_pressed("move_left"):
 			velocity.x = -speed;
-		
+
 		# Apply gravity
 		velocity.y = velocity.y + 30
-	
+
 		# Check input for jump
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_force
-	
-	elif isFloating:
+
+	elif isFloating: #if player is floating
 		# Check input for horizontal movement
 		if Input.is_action_pressed("move_right"):
 			velocity.x = SPEED;
 		if Input.is_action_pressed("move_left"):
 			velocity.x = -SPEED;
-		
-		# Apply gravity
-		velocity.y = 0
-	
+
+		# Don't apply gravity
+		velocity.y = 0 # make y velocity non existent
+
 	else:
 		# Check input for horizontal movement
 		if Input.is_action_pressed("move_right"):
 			velocity.x = SPEED;
 		if Input.is_action_pressed("move_left"):
 			velocity.x = -SPEED;
-		
+
 		# Apply gravity
 		velocity.y = velocity.y + 30
 
@@ -73,9 +80,18 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_FORCE;
 
+		# Check input for throwing
+		if Input.is_action_just_pressed("throw") and !isThrowing:
+			Global.emit_signal("lose_money", 25)
+			var thrown_projectile = projectile.instance()
+			#thrown_projectile.position = position
+			thrown_projectile.translate(position - thrown_projectile.position)
+			get_node("/root/Main").add_child(thrown_projectile)
+			
+
 	# Move and slide the character
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
+
 	# Apply friction to x-velocity
 	velocity.x = lerp(velocity.x , 0 , 0.2)
 	
