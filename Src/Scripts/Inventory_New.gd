@@ -1,11 +1,11 @@
 extends HBoxContainer
 
 # Define the maximum number of items that can be stored in the inventory
-const MAX_ITEMS = 7
 var base_item = load("res://Src/Objects/Base_Item_Redo.tscn")
-var item_counts = {} # Dictionary to store the number of items per frame
-var item_sprites = {}
+var item_counts = {} # Dictionary to store the number of items per frame index
+var item_sprites = {} # Dictionary to store the sprites of items per frame index
 var inventory_slot = load("res://Src/UserInterface/Inventory/InventorySlot.tscn")
+
 
 func _ready():
 	Global.connect("item_entered_cart", self, "add_item")
@@ -26,6 +26,7 @@ func add_item(item):
 		
 		item_counts[frame] = 1 # If frame isn't present, initialize it with a count of 1
 		var inv_slot_instance = inventory_slot.instance() #make an instance of inventory_slot scene.
+		print ("something happens")
 		item_sprites[frame] = inv_slot_instance.get_node("Sprite") # put sprite node in the sprite dictionary
 		item_sprites[frame].texture = item.get_node("Sprite").texture # add the item's texture
 		item_sprites[frame].scale = Vector2(0.5, 0.5)
@@ -33,8 +34,8 @@ func add_item(item):
 
 		var inv_item_label = inv_slot_instance.get_node("Label") #Get the label
 		inv_item_label.text = str(item_counts[frame]) #Update the label
-		
 		add_child(inv_slot_instance)
+		print ("item added to inventory")
 			
 	elif item_sprites.has(frame):
 		# If it does, increment the count by 1

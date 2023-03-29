@@ -102,6 +102,9 @@ pick_up={
 2d_physics/layer_5="WinWall"
 2d_physics/layer_6="Ground"
 2d_physics/layer_7="Cart"
+2d_physics/layer_8="Dog"
+2d_physics/layer_9="Granny"
+2d_physics/layer_10="Boy"
 
 [physics]
 

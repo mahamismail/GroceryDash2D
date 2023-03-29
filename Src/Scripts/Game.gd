@@ -8,21 +8,9 @@ onready var player = get_node("Player")
 var timer = null #for Grandma
 var damageTimer = null #For Player
 
-var base_item = load("res://Src/Objects/Base_Item.tscn")
+var base_item = load("res://Src/Objects/Base_Item_Redo.tscn")
 onready var all_item_children = get_node("Draggables_trials")
 
-func _ready():
-	create_Grocery_items()
-	
-func create_Grocery_items():
-	for child in all_item_children.get_children():
-		# Check if the child node is a Base_Item instance
-		if child is Draggables:
-			# Get a reference to the Sprite node of the Base_Item instance
-			var sprite = child.get_node("Sprite")
-			# Set the frame to a random value between 0 and 4
-			sprite.frame = randi() % 5
-		
 #Changing the volume of music in headphones
 func _on_HSlider_value_changed(value):
 	print("music volume changed")
@@ -62,7 +50,7 @@ func _on_HSlider_value_changed(value):
 	
 	# Now if the value is greater than or equal to 15, 
 	#wait until 5 seconds, then start damaging the player's health
-	if value >= 15:
+	if value >= 16:
 		if damageTimer == null:
 			damageTimer = Timer.new()
 			damageTimer.set_wait_time(5.0)
@@ -70,6 +58,7 @@ func _on_HSlider_value_changed(value):
 			damageTimer.connect("timeout", self, "_on_damage_timer_timeout")
 			add_child(damageTimer)
 			damageTimer.start()
+			Global.emit_signal("lose_health", 0.5)
 	else:
 		if damageTimer != null:
 			damageTimer.stop()
@@ -83,8 +72,11 @@ func _on_granny_collision_mask_timeout():
 	
 	grannyTimer.hide() #Hide the progress bar when the timer times out
 	grannyTimer.value += 1 #Update the value of the progress bar each time the timer fires
-
+	
 func _on_damage_timer_timeout():
 	# Reduce the player's health after 5 seconds
-	Global.emit_signal("lose_health");
+	Global.emit_signal("lose_health", 0.5);
 	print("Lost health")
+
+	if damageTimer != null and damageTimer.is_stopped() == false:
+		damageTimer.start()

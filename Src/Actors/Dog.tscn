@@ -23,6 +23,7 @@ rotation = -1.57734
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 128
 
 [node name="AttackAreaShape" type="CollisionPolygon2D" parent="AttackArea"]
 polygon = PoolVector2Array( -10, -24, -41, -24, -50, -11, -72, 3, -75, 17, -59, 28, -44, 27, -29, 14, -17, 24, -35, 39, -25, 48, -8, 51, 12, 34, 38, 26, 68, 34, 75, 12, 71, 5, 47, 4, 65, -17, 39, -5, 14, -6, -1, -2, -18, -10 )

@@ -6,11 +6,15 @@ var selected = false
 var velocity = get_linear_velocity() #getting velocity of the rigidbody
 onready var collision_shape = $CollisionBody
 onready var sprite = $Sprite
+onready var cost = [8, 3, 2, 5, 6]
 
 
 func _ready():
-	pass
+	set_frame()
 	
+func set_frame():
+	get_node("Sprite").frame = randi() % 5 # Set the frame to a random value between 0 and 4
+
 func _process(_delta):
 	if selected: #when selected is true (if draggable item clicked, it's true)
 		followMouse()

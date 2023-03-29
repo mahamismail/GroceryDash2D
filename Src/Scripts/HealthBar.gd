@@ -1,20 +1,18 @@
 extends Panel
 
-#var health = 3
 var health = Global.health
-onready var health_label = $Amount
-onready var player = get_node("../../Player")
-
-
+#onready var player = get_node("../../Player")
 
 func _ready():
+	$HealthBar.value = health
 	Global.connect("lose_health", self, "_lose_health")
 	
-func _lose_health(health_bar: ProgressBar):
-	# When player collides with enemy, this function is called.
-	health_bar.value -= 0.1 # decrease the progress bar by 10% of the max value
-
+func _lose_health(lost_amount):
+	health = health - 1 # decrease the progress bar by 10% of the max value
+	$HealthBar.value = health
+	print("losing health")
+	
 	if health <= 0: #if health is 0 or less, you die. 
-		emit_signal("you_Died")
+		Global.emit_signal("you_died")
 		pass
 		

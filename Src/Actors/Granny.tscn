@@ -20,7 +20,7 @@ position = Vector2( 0, -19 )
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 256
 
 [node name="AttackAreaShape" type="CollisionPolygon2D" parent="AttackArea"]
 position = Vector2( 0, 2 )
@@ -36,3 +36,4 @@ rect_rotation = 89.5968
 max_value = 5.0
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_AttackArea_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_AttackArea_body_exited"]

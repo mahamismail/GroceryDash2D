@@ -18,3 +18,8 @@ func _physics_process(delta):
 
 func _on_AttackArea_body_entered(body):
 	is_colliding = true
+	if not body is Enemy:
+		print("Granny stopped you!")
+
+func _on_AttackArea_body_exited(body):
+	is_colliding = false

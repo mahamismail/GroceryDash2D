@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
@@ -12,22 +12,19 @@
 [ext_resource path="res://Src/UserInterface/Inventory/InventoryContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/UserInterface/Timer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Audio/Grocery Store sounds.mp3" type="AudioStream" id=12]
-[ext_resource path="res://Src/Objects/Base_Item.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Src/Scenes/Money.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Audio/Thrashing Around.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Src/Scripts/Game.gd" type="Script" id=15]
 [ext_resource path="res://Src/Objects/IsleEntry.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Draggables/chips.png" type="Texture" id=17]
 [ext_resource path="res://Src/Scripts/HealthBar.gd" type="Script" id=18]
-[ext_resource path="res://Src/Objects/Items/Cheese.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Src/Objects/Items/Chips.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Src/Objects/Items/Chocolate.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Src/Objects/Base_Item_Redo.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 44.6154, 226.923 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2650, 21.1538 )
+extents = Vector2( 2726.15, 21.1538 )
 
 [sub_resource type="GDScript" id=3]
 
@@ -99,41 +96,16 @@ position = Vector2( 8219, 290 )
 [node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 7564, 289 )
 
-[node name="Draggables" type="Node2D" parent="."]
-visible = false
-
-[node name="Cabbage" parent="Draggables" instance=ExtResource( 13 )]
-position = Vector2( 524, 194 )
-mass = 3.0
-gravity_scale = 3.0
-
-[node name="Cabbage2" parent="Draggables" instance=ExtResource( 13 )]
-position = Vector2( 968, 264 )
-
-[node name="Cabbage3" parent="Draggables" instance=ExtResource( 13 )]
-position = Vector2( 1161, 338 )
-
-[node name="Cheese" parent="Draggables" instance=ExtResource( 19 )]
-position = Vector2( 1083, 195 )
-
-[node name="Cheese2" parent="Draggables" instance=ExtResource( 19 )]
-position = Vector2( 1887, 201 )
-
-[node name="Cheese3" parent="Draggables" instance=ExtResource( 19 )]
-
-[node name="Chips" parent="Draggables" instance=ExtResource( 20 )]
-position = Vector2( 1490, 192 )
-
-[node name="Cheese4" parent="Draggables" instance=ExtResource( 19 )]
-position = Vector2( 1332, 342 )
-
-[node name="Choc" parent="Draggables" instance=ExtResource( 21 )]
-position = Vector2( 1849, 270 )
-
 [node name="Draggables_trials" type="Node2D" parent="."]
 
 [node name="Base_Item" parent="Draggables_trials" instance=ExtResource( 22 )]
 position = Vector2( 288, 198 )
+
+[node name="Base_Item5" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1352, 184 )
+
+[node name="Base_Item6" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2032, 251 )
 
 [node name="Base_Item2" parent="Draggables_trials" instance=ExtResource( 22 )]
 position = Vector2( 448, 267 )
@@ -145,7 +117,7 @@ position = Vector2( 1005, 197 )
 position = Vector2( 1068, 342 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 46, 389 )
+position = Vector2( 46, 378 )
 scale = Vector2( 1.2, 1.2 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -165,7 +137,7 @@ position = Vector2( 4381, 427 )
 position = Vector2( 6403, 427 )
 
 [node name="Dog" parent="." instance=ExtResource( 9 )]
-position = Vector2( 556, 459 )
+position = Vector2( 1203, 459 )
 
 [node name="Dog2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2582, 461 )
@@ -196,7 +168,7 @@ collision_layer = 32
 collision_mask = 47
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 2650, 23.4615 )
+position = Vector2( 2573.85, 23.4615 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
@@ -227,6 +199,14 @@ texture = ExtResource( 3 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
 
+[node name="ColorRect" type="ColorRect" parent="InterfaceLayer"]
+visible = false
+margin_left = -46.0
+margin_top = -60.0
+margin_right = 1195.0
+margin_bottom = 590.0
+color = Color( 0.453125, 0.0389404, 0.0389404, 0.560784 )
+
 [node name="InventoryContainer" parent="InterfaceLayer" instance=ExtResource( 10 )]
 margin_left = 151.0
 margin_top = 19.0
@@ -240,6 +220,7 @@ margin_left = 906.0
 margin_top = 21.0
 margin_right = 1005.0
 margin_bottom = 60.0
+script = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="InterfaceLayer/Money"]
 margin_left = 18.0
@@ -250,10 +231,10 @@ text = "100$"
 align = 1
 
 [node name="Music" type="Panel" parent="InterfaceLayer"]
-margin_left = 765.0
-margin_top = 514.0
-margin_right = 1003.0
-margin_bottom = 553.0
+margin_left = 776.0
+margin_top = 528.0
+margin_right = 1014.0
+margin_bottom = 567.0
 
 [node name="Label" type="Label" parent="InterfaceLayer/Music"]
 margin_left = 18.0
@@ -276,10 +257,10 @@ volume_db = -80.0
 autoplay = true
 
 [node name="Health" type="Panel" parent="InterfaceLayer"]
-margin_left = 24.0
-margin_top = 514.0
-margin_right = 232.0
-margin_bottom = 553.0
+margin_left = 8.0
+margin_top = 528.0
+margin_right = 216.0
+margin_bottom = 567.0
 script = ExtResource( 18 )
 
 [node name="Amount" type="TextureRect" parent="InterfaceLayer/Health"]
@@ -297,15 +278,8 @@ margin_top = 11.0
 margin_right = 195.0
 margin_bottom = 27.0
 max_value = 20.0
+step = 0.1
 value = 20.0
-
-[node name="ColorRect" type="ColorRect" parent="InterfaceLayer/Health"]
-visible = false
-margin_left = -70.0
-margin_top = -574.0
-margin_right = 1171.0
-margin_bottom = 76.0
-color = Color( 0.453125, 0.0389404, 0.0389404, 0.560784 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
