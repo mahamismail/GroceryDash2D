@@ -199,13 +199,42 @@ texture = ExtResource( 3 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
 
-[node name="ColorRect" type="ColorRect" parent="InterfaceLayer"]
+[node name="DizzyView" type="ColorRect" parent="InterfaceLayer"]
 visible = false
 margin_left = -46.0
 margin_top = -60.0
 margin_right = 1195.0
 margin_bottom = 590.0
 color = Color( 0.453125, 0.0389404, 0.0389404, 0.560784 )
+
+[node name="DizzySliders" type="ColorRect" parent="InterfaceLayer"]
+visible = false
+margin_left = 357.0
+margin_top = 418.0
+margin_right = 618.0
+margin_bottom = 562.0
+color = Color( 0.54902, 0.188235, 0.188235, 0.678431 )
+
+[node name="HSlider" type="HSlider" parent="InterfaceLayer/DizzySliders"]
+margin_left = 21.0
+margin_top = 19.0
+margin_right = 240.0
+margin_bottom = 54.0
+max_value = 10.0
+
+[node name="HSlider2" type="HSlider" parent="InterfaceLayer/DizzySliders"]
+margin_left = 21.0
+margin_top = 56.0
+margin_right = 240.0
+margin_bottom = 91.0
+max_value = 10.0
+
+[node name="HSlider3" type="HSlider" parent="InterfaceLayer/DizzySliders"]
+visible = false
+margin_left = 21.0
+margin_top = 96.0
+margin_right = 240.0
+margin_bottom = 131.0
 
 [node name="InventoryContainer" parent="InterfaceLayer" instance=ExtResource( 10 )]
 margin_left = 151.0
@@ -287,4 +316,6 @@ volume_db = -19.275
 autoplay = true
 mix_target = 1
 
+[connection signal="value_changed" from="InterfaceLayer/DizzySliders/HSlider" to="Player" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="InterfaceLayer/DizzySliders/HSlider2" to="Player" method="_on_HSlider2_value_changed"]
 [connection signal="value_changed" from="InterfaceLayer/Music/HSlider" to="." method="_on_HSlider_value_changed"]

@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Characters/Player3.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0
 height = 180.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 0
 collision_mask = 928
 script = ExtResource( 2 )
 
@@ -17,9 +20,15 @@ position = Vector2( 1, 2.38419e-07 )
 scale = Vector2( 0.666667, 0.666667 )
 texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 5, 1.75 )
-polygon = PoolVector2Array( -10, -108.75, -24, -103.75, -16, -64.75, -32, -10.75, -20, 47.25, -15, 78.25, -16, 106.25, -16, 108.25, 8, 108.25, 1, 39.25, -9, -3.75, -2, -45.75, -6, -64.75, 4, -71.75, 0, -110.75 )
+[node name="MouthArea" type="Area2D" parent="."]
+position = Vector2( 2, 1 )
+collision_layer = 0
+collision_mask = 4096
+priority = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea"]
+position = Vector2( 8, -82 )
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -34,5 +43,11 @@ shape = SubResource( 1 )
 [node name="CartArea" parent="." instance=ExtResource( 3 )]
 position = Vector2( 75, 33 )
 scale = Vector2( 0.8, 0.8 )
+priority = 2.0
 
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 5, 1.75 )
+polygon = PoolVector2Array( -10, -108.75, -24, -103.75, -16, -64.75, -32, -10.75, -20, 47.25, -15, 78.25, -16, 106.25, -16, 108.25, 8, 108.25, 1, 39.25, -9, -3.75, -2, -45.75, -6, -64.75, 4, -71.75, 0, -110.75 )
+
+[connection signal="area_entered" from="MouthArea" to="." method="_on_MouthArea_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -31,7 +31,8 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 			if event.pressed:
 				selected = true #it is selected/picked
 				mode = MODE_RIGID; #set to Rigid mode to get the gravity fall.
-				set_collision_layer_bit(6, true) #let the rigid body detect the ground now
+				set_collision_layer_bit(6, true) #let it detect the cart now that it's picked
+				$Area2D.set_collision_layer_bit(12, true) #let it detect the player's mouth now that it's picked
 			else:
 				selected = false
 					
