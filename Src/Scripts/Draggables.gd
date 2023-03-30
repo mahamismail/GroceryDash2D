@@ -11,7 +11,11 @@ func _ready():
 	randomize()
 	mode = MODE_STATIC
 	set_frame()
-	
+
+#ISSUE WHEN SHIFTING INTO THE NEW SCENE WHEN PLAYER CLICKS AND SWITCHES ISLE
+# DRAGGABLE ITEMS JUST DISAPPEAR ON CLICK AND DO NOT DRAG. UNSURE WHY
+
+
 func set_frame():
 	get_node("Sprite").frame = randi() % 5 # Set the frame to a random value between 0 and 4
 
