@@ -4,6 +4,7 @@ onready var MetalMusic = get_node("InterfaceLayer/Music/HSlider/AudioStreamPlaye
 onready var granny = get_node("Granny")
 onready var grannyTimer = get_node("Granny/GrannyTimer")
 onready var player = get_node("Player")
+var full = preload("res://Assets/Draggables/empty.png")
 
 var timer = null #for Grandma
 var damageTimer = null #For Player

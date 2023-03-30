@@ -10,6 +10,7 @@ onready var sprite = $Sprite
 var isThrown = false
 
 func _ready():
+	randomize()
 	mode = MODE_STATIC
 	set_frame()
 	Global.connect("throwing_last_item", self, "_throwing_last_item")

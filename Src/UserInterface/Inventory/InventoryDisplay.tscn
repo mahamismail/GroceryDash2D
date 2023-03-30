@@ -9,35 +9,28 @@ margin_right = 676.0
 margin_bottom = 48.0
 
 [node name="Inventory Slot2" parent="." instance=ExtResource( 1 )]
-margin_right = 83.0
-margin_bottom = 67.0
+margin_right = 8.0
 
 [node name="Inventory Slot3" parent="." instance=ExtResource( 1 )]
-margin_left = 87.0
-margin_right = 170.0
-margin_bottom = 67.0
+margin_left = 12.0
+margin_right = 20.0
 
 [node name="Inventory Slot4" parent="." instance=ExtResource( 1 )]
-margin_left = 174.0
-margin_right = 257.0
-margin_bottom = 67.0
+margin_left = 24.0
+margin_right = 32.0
 
 [node name="Inventory Slot5" parent="." instance=ExtResource( 1 )]
-margin_left = 261.0
-margin_right = 344.0
-margin_bottom = 67.0
+margin_left = 36.0
+margin_right = 44.0
 
 [node name="Inventory Slot6" parent="." instance=ExtResource( 1 )]
-margin_left = 348.0
-margin_right = 431.0
-margin_bottom = 67.0
+margin_left = 48.0
+margin_right = 56.0
 
 [node name="Inventory Slot7" parent="." instance=ExtResource( 1 )]
-margin_left = 435.0
-margin_right = 518.0
-margin_bottom = 67.0
+margin_left = 60.0
+margin_right = 68.0
 
 [node name="Inventory Slot8" parent="." instance=ExtResource( 1 )]
-margin_left = 522.0
-margin_right = 605.0
-margin_bottom = 67.0
+margin_left = 72.0
+margin_right = 80.0

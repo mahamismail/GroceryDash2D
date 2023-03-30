@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Src/Scripts/Inventory_New.gd" type="Script" id=1]
+[ext_resource path="res://Src/Scripts/Inventory.gd" type="Script" id=1]
 
 [node name="InventoryContainer" type="Panel"]
 margin_left = -1.0
