@@ -12,3 +12,6 @@ func money_lost(cost):
 		Global.money = 0;
 		
 	$Label.text = str(Global.money) + "$"
+	
+	if Global.money == 0:
+		Global.emit_signal("you_died")

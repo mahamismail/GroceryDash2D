@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
+[ext_resource path="res://Src/UserInterface/PopUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/IsleShelf1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/IsleShelf2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/UserInterface/GameUI.tscn" type="PackedScene" id=6]
@@ -47,6 +48,18 @@ target_position = NodePath("../../Position2D")
 
 [node name="IsleShelf3" parent="Isles" instance=ExtResource( 4 )]
 position = Vector2( -67, 290 )
+
+[node name="IsleShelf17" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 891, 290 )
+
+[node name="IsleShelf18" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 2359, 290 )
+
+[node name="IsleShelf19" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 3699, 290 )
+
+[node name="IsleShelf20" parent="Isles" instance=ExtResource( 4 )]
+position = Vector2( 4487, 290 )
 
 [node name="IsleShelf4" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 1511, 290 )
@@ -445,11 +458,23 @@ position = Vector2( 4381, 427 )
 [node name="Boy2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 6403, 427 )
 
+[node name="Boy3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3626, 1222 )
+
+[node name="Boy4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2947, 1222 )
+
+[node name="Boy5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4969, 1222 )
+
 [node name="Dog" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1203, 459 )
 
 [node name="Dog2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2582, 461 )
+
+[node name="Dog3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4778, 1228 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -542,6 +567,8 @@ scale = Vector2( 0.863568, 0.863568 )
 texture = ExtResource( 2 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
+
+[node name="PopUp" parent="InterfaceLayer" instance=ExtResource( 3 )]
 
 [node name="DizzyView" type="ColorRect" parent="InterfaceLayer"]
 visible = false
