@@ -19,8 +19,9 @@ func _on_Area2D_body_entered(body):
 		var frame = item_sprite.frame
 		 
 		Global.emit_signal("lose_money", Global.cost[frame])
-		
 		queue_free()
+		#var area2dCollision = body.get_node("Area2D/CollisionShape2D2")
+		#area2dCollision.set_deferred("disabled", true)
 		body.queue_free()
 
 		

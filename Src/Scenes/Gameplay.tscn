@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/BG (2).png" type="Texture" id=2]
-[ext_resource path="res://Assets/Backgrounds/isles.png" type="Texture" id=3]
 [ext_resource path="res://Src/Objects/IsleShelf1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/IsleShelf2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/UserInterface/GameUI.tscn" type="PackedScene" id=6]
@@ -12,7 +11,7 @@
 [ext_resource path="res://Src/UserInterface/Inventory/InventoryContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/UserInterface/Timer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Audio/Grocery Store sounds.mp3" type="AudioStream" id=12]
-[ext_resource path="res://Src/Scenes/Money.gd" type="Script" id=13]
+[ext_resource path="res://Src/Scripts/Money.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Audio/Thrashing Around.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Src/Scripts/Game.gd" type="Script" id=15]
 [ext_resource path="res://Src/Objects/IsleEntry.tscn" type="PackedScene" id=16]
@@ -24,27 +23,25 @@
 extents = Vector2( 44.6154, 226.923 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2726.15, 21.1538 )
+extents = Vector2( 2920.38, 20.7692 )
 
 [sub_resource type="GDScript" id=3]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 15 )
 
-[node name="Isle Entry" parent="." instance=ExtResource( 16 )]
-position = Vector2( 775, 108 )
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 408, 1158 )
 
-[node name="Isle Entry2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2471, 108 )
+[node name="Isle Entrances" type="Node2D" parent="."]
 
-[node name="Isle Entry3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 3594, 108 )
+[node name="Isle Entry" parent="Isle Entrances" instance=ExtResource( 16 )]
+position = Vector2( 6970, 120 )
+target_position = NodePath("../../Position2D")
 
-[node name="Isle Entry4" parent="." instance=ExtResource( 16 )]
-position = Vector2( 4365, 108 )
-
-[node name="Isle Entry5" parent="." instance=ExtResource( 16 )]
-position = Vector2( 6081, 108 )
+[node name="Isle Entry2" parent="Isle Entrances" instance=ExtResource( 16 )]
+position = Vector2( 4920, 888 )
+target_position = NodePath("../../Position2D")
 
 [node name="Isles" type="Node2D" parent="."]
 
@@ -79,42 +76,354 @@ position = Vector2( 4645, 290 )
 position = Vector2( 3990, 289 )
 
 [node name="IsleShelf11" parent="Isles" instance=ExtResource( 5 )]
-position = Vector2( 6799, 290 )
+position = Vector2( 6592, 290 )
 
 [node name="IsleShelf12" parent="Isles" instance=ExtResource( 4 )]
-position = Vector2( 6337, 290 )
+position = Vector2( 6139, 290 )
 
 [node name="IsleShelf13" parent="Isles" instance=ExtResource( 5 )]
 position = Vector2( 5682, 289 )
 
 [node name="IsleShelf14" parent="Isles" instance=ExtResource( 5 )]
-position = Vector2( 8681, 290 )
+position = Vector2( 8317, 290 )
 
 [node name="IsleShelf15" parent="Isles" instance=ExtResource( 4 )]
-position = Vector2( 8219, 290 )
+position = Vector2( 7855, 290 )
 
 [node name="IsleShelf16" parent="Isles" instance=ExtResource( 5 )]
-position = Vector2( 7564, 289 )
+position = Vector2( 7394, 289 )
+
+[node name="Isles2" type="Node2D" parent="."]
+position = Vector2( 752, 777 )
+
+[node name="IsleShelf3" parent="Isles2" instance=ExtResource( 4 )]
+position = Vector2( -67, 290 )
+
+[node name="IsleShelf4" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 1322, 290 )
+
+[node name="IsleShelf2" parent="Isles2" instance=ExtResource( 4 )]
+position = Vector2( 860, 290 )
+
+[node name="IsleShelf1" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 394, 289 )
+
+[node name="IsleShelf5" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 2822, 290 )
+
+[node name="IsleShelf6" parent="Isles2" instance=ExtResource( 4 )]
+position = Vector2( 2360, 290 )
+
+[node name="IsleShelf7" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 1897, 289 )
+
+[node name="IsleShelf9" parent="Isles2" instance=ExtResource( 4 )]
+position = Vector2( 3866, 290 )
+
+[node name="IsleShelf10" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 3403, 289 )
+
+[node name="IsleShelf11" parent="Isles2" instance=ExtResource( 4 )]
+position = Vector2( 5169, 290 )
+
+[node name="IsleShelf12" parent="Isles2" instance=ExtResource( 5 )]
+position = Vector2( 4706, 289 )
 
 [node name="Draggables_trials" type="Node2D" parent="."]
 
 [node name="Base_Item" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 288, 198 )
-
-[node name="Base_Item5" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 1352, 184 )
-
-[node name="Base_Item6" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 2032, 251 )
+position = Vector2( 10, 186 )
 
 [node name="Base_Item2" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 448, 267 )
+position = Vector2( 180, 260 )
 
 [node name="Base_Item3" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 1005, 197 )
+position = Vector2( 209, 334 )
 
 [node name="Base_Item4" parent="Draggables_trials" instance=ExtResource( 22 )]
-position = Vector2( 1068, 342 )
+position = Vector2( 591, 333 )
+
+[node name="Base_Item5" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 181, 185 )
+
+[node name="Base_Item6" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 267, 185 )
+
+[node name="Base_Item7" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 947, 188 )
+
+[node name="Base_Item8" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1031, 188 )
+
+[node name="Base_Item9" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 994, 261 )
+
+[node name="Base_Item10" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1137, 330 )
+
+[node name="Base_Item11" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 979, 407 )
+
+[node name="Base_Item12" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1328, 405 )
+
+[node name="Base_Item13" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1329, 260 )
+
+[node name="Base_Item14" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1547, 185 )
+
+[node name="Base_Item15" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1462, 260 )
+
+[node name="Base_Item16" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1588, 333 )
+
+[node name="Base_Item17" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1719, 406 )
+
+[node name="Base_Item18" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1904, 184 )
+
+[node name="Base_Item19" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2068, 256 )
+
+[node name="Base_Item20" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2167, 256 )
+
+[node name="Base_Item21" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 1906, 329 )
+
+[node name="Base_Item22" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2135, 406 )
+
+[node name="Base_Item23" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2648, 256 )
+
+[node name="Base_Item24" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2825, 186 )
+
+[node name="Base_Item25" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2747, 405 )
+
+[node name="Base_Item26" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3017, 186 )
+
+[node name="Base_Item27" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3057, 184 )
+
+[node name="Base_Item28" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3139, 259 )
+
+[node name="Base_Item29" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3181, 334 )
+
+[node name="Base_Item30" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 2997, 406 )
+
+[node name="Base_Item31" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3406, 407 )
+
+[node name="Base_Item32" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 3970, 186 )
+
+[node name="Base_Item33" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 4181, 407 )
+
+[node name="Base_Item34" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 4563, 183 )
+
+[node name="Base_Item35" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 4708, 333 )
+
+[node name="Base_Item36" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 4579, 332 )
+
+[node name="Base_Item37" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 4937, 259 )
+
+[node name="Base_Item38" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5177, 187 )
+
+[node name="Base_Item39" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5218, 332 )
+
+[node name="Base_Item40" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5176, 334 )
+
+[node name="Base_Item41" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5579, 187 )
+
+[node name="Base_Item42" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5816, 257 )
+
+[node name="Base_Item43" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 5563, 405 )
+
+[node name="Base_Item44" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6134, 260 )
+
+[node name="Base_Item45" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6503, 183 )
+
+[node name="Base_Item46" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6783, 332 )
+
+[node name="Base_Item47" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6728, 334 )
+
+[node name="Base_Item48" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6677, 336 )
+
+[node name="Base_Item49" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6783, 183 )
+
+[node name="Base_Item50" parent="Draggables_trials" instance=ExtResource( 22 )]
+position = Vector2( 6603, 405 )
+
+[node name="Draggables_trials2" type="Node2D" parent="."]
+position = Vector2( 572, 779 )
+
+[node name="Base_Item51" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 10, 186 )
+
+[node name="Base_Item52" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 124, 335 )
+
+[node name="Base_Item53" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 82, 333 )
+
+[node name="Base_Item54" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 407, 254 )
+
+[node name="Base_Item55" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 36, 332 )
+
+[node name="Base_Item56" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 96, 400 )
+
+[node name="Base_Item57" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 664, 254 )
+
+[node name="Base_Item58" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 608, 331 )
+
+[node name="Base_Item59" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 709, 405 )
+
+[node name="Base_Item60" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1026, 181 )
+
+[node name="Base_Item61" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1140, 406 )
+
+[node name="Base_Item62" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1410, 407 )
+
+[node name="Base_Item63" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1329, 260 )
+
+[node name="Base_Item64" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1547, 185 )
+
+[node name="Base_Item65" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1313, 184 )
+
+[node name="Base_Item66" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1698, 332 )
+
+[node name="Base_Item67" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1949, 330 )
+
+[node name="Base_Item68" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1904, 184 )
+
+[node name="Base_Item69" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2068, 256 )
+
+[node name="Base_Item70" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2167, 256 )
+
+[node name="Base_Item71" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 1906, 329 )
+
+[node name="Base_Item72" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2526, 185 )
+
+[node name="Base_Item73" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2443, 331 )
+
+[node name="Base_Item74" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2825, 186 )
+
+[node name="Base_Item75" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2635, 403 )
+
+[node name="Base_Item76" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3017, 186 )
+
+[node name="Base_Item77" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3057, 184 )
+
+[node name="Base_Item78" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3022, 405 )
+
+[node name="Base_Item79" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3181, 334 )
+
+[node name="Base_Item80" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2848, 334 )
+
+[node name="Base_Item81" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3406, 407 )
+
+[node name="Base_Item82" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3970, 186 )
+
+[node name="Base_Item101" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3526, 182 )
+
+[node name="Base_Item102" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3562, 182 )
+
+[node name="Base_Item103" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3600, 182 )
+
+[node name="Base_Item104" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3640, 182 )
+
+[node name="Base_Item105" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3682, 182 )
+
+[node name="Base_Item106" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3734, 326 )
+
+[node name="Base_Item107" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3778, 326 )
+
+[node name="Base_Item108" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 4036, 406 )
+
+[node name="Base_Item83" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3599, 407 )
+
+[node name="Base_Item94" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3404, 264 )
+
+[node name="Base_Item96" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 4053, 336 )
+
+[node name="Base_Item97" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3998, 338 )
+
+[node name="Base_Item98" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 3947, 340 )
+
+[node name="Base_Item99" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 4053, 187 )
+
+[node name="Base_Item100" parent="Draggables_trials2" instance=ExtResource( 22 )]
+position = Vector2( 2896, 335 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 46, 378 )
@@ -127,7 +436,7 @@ drag_margin_v_enabled = true
 drag_margin_top = 1.0
 
 [node name="Granny" parent="." instance=ExtResource( 8 )]
-position = Vector2( 6744, 371 )
+position = Vector2( 6744, 378 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Boy" parent="." instance=ExtResource( 7 )]
@@ -147,18 +456,29 @@ position = Vector2( 2582, 461 )
 [node name="Wall1" type="StaticBody2D" parent="Walls"]
 position = Vector2( -52.0001, 532 )
 scale = Vector2( 1.3, 1.3 )
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
 position = Vector2( -34.6154, -183.077 )
 shape = SubResource( 2 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall1"]
+position = Vector2( 247.692, 382.308 )
+shape = SubResource( 2 )
+
 [node name="Wall2" type="StaticBody2D" parent="Walls"]
-position = Vector2( 6933, 536 )
+position = Vector2( 7202, 536 )
 scale = Vector2( 1.3, 1.3 )
-collision_layer = 0
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
 position = Vector2( -34.6154, -183.077 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall2"]
+position = Vector2( -1614.62, 382.308 )
 shape = SubResource( 2 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -168,11 +488,25 @@ collision_layer = 32
 collision_mask = 47
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 2573.85, 23.4615 )
+position = Vector2( 2721.54, 12.3077 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 2624.62, -430 )
+position = Vector2( 2968.46, 606.923 )
+shape = SubResource( 1 )
+
+[node name="Cielings" type="StaticBody2D" parent="."]
+position = Vector2( -52.0001, 532 )
+scale = Vector2( 1.3, 1.3 )
+collision_layer = 32
+collision_mask = 47
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cielings"]
+position = Vector2( 2668.85, -430 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cielings"]
+position = Vector2( 3020.39, 164.615 )
 shape = SubResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -188,14 +522,24 @@ scale = Vector2( 0.863568, 0.863568 )
 texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 position = Vector2( 512, 288 )
+motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 0.889817, -0.499988 )
-scale = Vector2( 0.862069, 0.862069 )
-texture = ExtResource( 3 )
+position = Vector2( 7.62939e-06, -1.14441e-05 )
+scale = Vector2( 0.863568, 0.863568 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 841, 1061 )
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 7.62939e-06, -1.14441e-05 )
+scale = Vector2( 0.863568, 0.863568 )
+texture = ExtResource( 2 )
 
 [node name="InterfaceLayer" parent="." instance=ExtResource( 6 )]
 

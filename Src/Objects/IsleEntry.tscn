@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/IsleNums.png" type="Texture" id=1]
+[ext_resource path="res://Src/Scripts/IsleEntry.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 119.5, 190.5 )
 
-[node name="Isle Entry" type="Node2D"]
+[node name="Isle Entry" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -22,8 +24,8 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 151.5 )
 shape = SubResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_Isle_Entry_input_event"]

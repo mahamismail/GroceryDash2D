@@ -17,10 +17,9 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func _on_AttackArea_body_entered(body):
-	is_colliding = true
 	if body == player:
+		is_colliding = true
 		print("Granny stopped you!")
-		
 	elif body is Projectiles:
 		var item_node = get_node(body.get_path()) #Geting the node
 		var item_sprite = item_node.get_node("Sprite") #Getting the sprite

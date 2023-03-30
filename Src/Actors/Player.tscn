@@ -12,7 +12,7 @@ height = 180.0
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 0
-collision_mask = 928
+collision_mask = 673
 script = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="."]
