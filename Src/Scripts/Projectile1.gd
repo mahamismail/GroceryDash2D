@@ -14,5 +14,6 @@ func _ready():
 	#Global.connect("throwing_last_item", self, "_throwing_last_item")
 	
 func set_frame():
-	get_node("Sprite").frame = randi() % 5 # Set the frame to a random value between 0 and 4
+	get_node("Sprite").frame = Global.frame_ofLastPicked  # Set the frame to a random value between 0 and 4
+	
 

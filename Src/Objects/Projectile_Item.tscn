@@ -10,7 +10,7 @@ radius = 29.0689
 radius = 29.0689
 
 [node name="Base_Item" type="RigidBody2D"]
-collision_layer = 896
+collision_layer = 640
 collision_mask = 1056
 mass = 2.04082
 linear_velocity = Vector2( 500, 100 )

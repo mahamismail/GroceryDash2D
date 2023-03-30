@@ -6,6 +6,8 @@ onready var grannyTimer = get_node("Granny/GrannyTimer")
 onready var player = get_node("Player")
 var full = preload("res://Assets/Draggables/empty.png")
 
+onready var popUp = get_node("InterfaceLayer/PopUp")
+
 var timer = null #for Grandma
 var damageTimer = null #For Player
 
@@ -14,7 +16,19 @@ onready var all_item_children = get_node("Draggables_trials")
 
 
 func _ready():
+	popUp.show()
+	# Create a timer that will call the hide_popup() function after 5 seconds
+	var timer = Timer.new()
+	timer.set_wait_time(5.0)
+	timer.set_one_shot(true)
+	timer.connect("timeout", self, "hide_popup")
+	add_child(timer)
+	timer.start()
+
 	pass
+
+func hide_popup():
+	popUp.hide()
 	
 #Changing the volume of music in headphones
 func _on_HSlider_value_changed(value):

@@ -19,7 +19,8 @@ func _on_AttackArea_body_entered(body):
 		var frame = item_sprite.frame
 		 
 		Global.emit_signal("lose_money", Global.cost[frame])
-		queue_free()
+		velocity.x = speed
+		$Sprite.scale.x = -0.7
 		#var area2dCollision = body.get_node("Area2D/CollisionShape2D2")
 		#area2dCollision.set_deferred("disabled", true)
 		body.queue_free()

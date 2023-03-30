@@ -33,6 +33,7 @@ const JUMP_FORCE = -900;
 func _ready():
 	Global.connect("you_died", self, "_you_died")
 	Global.connect("make_dizzy", self, "make_dizzy")
+	Global.connect("you_win", self, "_you_win") #connecting signal from Global
 	
 	dizzySlider2_value = rand_range(0, 10) #assigning a random range so the dizzy sliders have different values to find each time
 	dizzySlider1_value = rand_range(0, 10) #assigning a random range so the dizzy sliders have different values to find each time
@@ -82,11 +83,13 @@ func _physics_process(_delta):
 
 		# Check input for throwing
 		if Input.is_action_just_pressed("throw") and !isThrowing:
-			Global.emit_signal("lose_money", 25)
-			var thrown_projectile = projectile.instance()
-			#thrown_projectile.position = position
-			thrown_projectile.translate(position - thrown_projectile.position)
-			get_node("/root/Main").add_child(thrown_projectile)
+			if Global.frame_ofLastPicked != null:
+				Global.emit_signal("lose_money", 25)
+				Global.emit_signal("throwing_last_item") #connecting to Inventory.gd
+				var thrown_projectile = projectile.instance()
+				thrown_projectile.translate(position - thrown_projectile.position)
+				#thrown_projectile.get_node("Area2D/CollisionShape2D2").disabled
+				get_node("/root/Main").add_child(thrown_projectile)
 			
 
 	# Move and slide the character
@@ -113,12 +116,6 @@ func make_dizzy(): #if both the two values of the sliders chosen by the player a
 		dizzyView.show()
 		dizzySliders.show()
 		return isDizzy
-
-func _you_died():
-	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
-	queue_free() # make the player invisible.
-	get_tree().change_scene("res://Src/Scenes/LosePage.tscn");
-	pass # Replace with function body.
 
 func start_floating():
 	Global.emit_signal("gain_health", 50)
@@ -152,3 +149,15 @@ func _on_HSlider2_value_changed(value):
 			isSlider2Correct = true
 			print("correct slider2")
 	make_dizzy()
+
+func _you_died():
+	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
+	queue_free() # make the player invisible.
+	get_tree().change_scene("res://Src/Scenes/LosePage.tscn");
+	pass # Replace with function body.
+
+func _you_win():
+	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
+	queue_free() # make the player invisible.
+	get_tree().change_scene("res://Src/Scenes/WinScene.tscn")
+	pass # Replace with function body.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Font/PaytoneOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Draggables/cabbage.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Draggables/Groceries.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Interface/Artboard 10 copy 2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Interface/Artboard 10 copy 3.png" type="Texture" id=4]
 
@@ -39,9 +39,11 @@ margin_bottom = 149.0
 color = Color( 0.0823529, 0.270588, 0.109804, 1 )
 
 [node name="Sprite" type="Sprite" parent="ColorRect/ColorRect2"]
-position = Vector2( 31.9999, 31 )
-scale = Vector2( 0.698413, 0.698412 )
+position = Vector2( 192, 34 )
+scale = Vector2( 0.49504, 0.495039 )
 texture = ExtResource( 2 )
+hframes = 5
+frame = 1
 
 [node name="GOAL" type="Label" parent="ColorRect"]
 margin_left = 185.0
@@ -50,6 +52,14 @@ margin_right = 280.0
 margin_bottom = 67.0
 custom_fonts/font = SubResource( 1 )
 text = "GOAL:"
+
+[node name="amountneeded" type="Label" parent="ColorRect"]
+margin_left = 238.0
+margin_top = 95.0
+margin_right = 333.0
+margin_bottom = 141.0
+custom_fonts/font = SubResource( 1 )
+text = "8 x"
 
 [node name="Label2" type="Label" parent="ColorRect"]
 margin_left = 290.0
