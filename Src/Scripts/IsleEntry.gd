@@ -10,6 +10,8 @@ func _ready():
 	 # Set the text of the label to the exported label_text when clicked
 	$Label.text = label_text
 
+#ISLE SWITCH MECHANIC
+#If the area for Isle Entry is clicked, switch the player's Position acc to the Position2D node
 func _on_Isle_Entry_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.is_pressed():

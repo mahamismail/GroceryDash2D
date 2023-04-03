@@ -16,24 +16,22 @@ func _physics_process(delta):
 		velocity.x = -speed # Else keep going at her usual speed
 	move_and_slide(velocity)
 
+#GRANNY/WITCH MECHANIC: Granny does not hurt, only blocks. Thus can be avoided only though music.
 func _on_AttackArea_body_entered(body):
-	if body == player:
+	if body == player: #if attack area of granny encounters player's attack area
 		is_colliding = true
 		print("Granny stopped you!")	
-		$AudioStreamPlayer2D.play()
+		$AudioStreamPlayer2D.play() # Granny talking gibberish
 		
-		
-		
-	elif body is Projectiles:
+	elif body is Projectiles: #This code is intentionally inactive due to collsion mask & layer
 		var item_node = get_node(body.get_path()) #Geting the node
 		var item_sprite = item_node.get_node("Sprite") #Getting the sprite
 		var frame = item_sprite.frame
 		 
 		Global.emit_signal("lose_money", Global.cost[frame])
-		
-		queue_free()
+		queue_free() 
 		body.queue_free()
 
-func _on_AttackArea_body_exited(body):
+func _on_AttackArea_body_exited(body): #if attack area of granny leaves player's attack area
 	is_colliding = false
 	$AudioStreamPlayer2D.stop()

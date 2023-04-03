@@ -10,9 +10,6 @@ var item = null
 var slotIndex
 var slotType
 var slotCount
-
-func _ready():
-	Global.connect("item_entered_cart", self, "add_item") #connecting signal from Global
 	
 func removeSlot(): #deletes item from slot
 	remove_child(item)

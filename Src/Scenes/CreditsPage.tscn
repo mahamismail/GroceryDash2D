@@ -55,13 +55,15 @@ text = "Credits"
 align = 1
 
 [node name="controltext" type="RichTextLabel" parent="ColorRect"]
-margin_left = 293.0
-margin_top = 125.0
-margin_right = 683.0
-margin_bottom = 482.0
+margin_left = 353.0
+margin_top = 127.0
+margin_right = 743.0
+margin_bottom = 484.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 3 )
-text = "Dog Animation: NVPH Studios on itch.io
+text = "All assets acquired from itch.io & freepik
+
+Dog Animation: NVPH Studios on itch.io
 
 Character Animation: Somepx on itch.io"
 

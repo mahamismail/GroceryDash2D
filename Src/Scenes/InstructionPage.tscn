@@ -59,10 +59,10 @@ text = "How  to play"
 align = 1
 
 [node name="controltext" type="RichTextLabel" parent="ColorRect"]
-margin_left = 198.0
-margin_top = 249.0
+margin_left = 143.0
+margin_top = 217.0
 margin_right = 588.0
-margin_bottom = 606.0
+margin_bottom = 574.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 3 )
 text = "- Use AD to move back and forth
@@ -73,58 +73,62 @@ text = "- Use AD to move back and forth
 
 - Raise Music Volume - Move Scrub Bar on bottom right
 
-- Feed Player Chocolate - Drag chocolate to mouth.
+- Feed Player Surprise Item - 
 
-- Throw Food - Press F
+Make the player float by feeding him the correct unknown item! Try feeding player all items by dragging it to the player's mouth to find out which item it is!
 
-- Switch to Another Isle - Click with LMB on empty space between isles with Isle Number on top."
+- Throw Food - Press F 
+
+- Switch to Another Isle - Click with LMB on empty space between isles with Isle Number on top.
+
+- Get Undizzy - When dizzy scroll through the two bars to get the correct value"
 
 [node name="obstacletext" type="RichTextLabel" parent="ColorRect"]
 margin_left = 609.0
-margin_top = 250.0
+margin_top = 218.0
 margin_right = 999.0
-margin_bottom = 607.0
+margin_bottom = 575.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 3 )
 text = "Boy - Steals your money
 
-Grandma - Stops you from moving
+Witchy Witch - Stops you from moving
 
 Dog - Makes you dizzy and slow."
 
 [node name="goaltext" type="RichTextLabel" parent="ColorRect"]
-margin_left = 203.0
-margin_top = 136.0
-margin_right = 784.0
-margin_bottom = 183.0
+margin_left = 199.0
+margin_top = 120.0
+margin_right = 780.0
+margin_bottom = 167.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 3 )
 tab_size = 5
-text = "Walk through the grocery isles picking up the mentioned items while evading busybodies! Do not run out of money, health or time!"
+text = "Complete 3 tasks! Walk through the grocery isles picking up the mentioned items while evading busybodies! Do not run out of money, health or time!"
 
 [node name="controls" type="Label" parent="ColorRect"]
-margin_left = 204.0
-margin_top = 195.0
-margin_right = 310.0
-margin_bottom = 227.0
+margin_left = 155.0
+margin_top = 179.0
+margin_right = 261.0
+margin_bottom = 211.0
 custom_colors/font_color = Color( 0.658824, 0.105882, 0.105882, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Controls"
 
 [node name="obstacles" type="Label" parent="ColorRect"]
 margin_left = 609.0
-margin_top = 196.0
+margin_top = 180.0
 margin_right = 715.0
-margin_bottom = 228.0
+margin_bottom = 212.0
 custom_colors/font_color = Color( 0.658824, 0.105882, 0.105882, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Obstacles"
 
 [node name="Back to Menu" type="TextureButton" parent="ColorRect"]
-margin_left = 416.0
-margin_top = 498.0
-margin_right = 734.0
-margin_bottom = 531.0
+margin_left = 624.0
+margin_top = 474.0
+margin_right = 942.0
+margin_bottom = 507.0
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
 

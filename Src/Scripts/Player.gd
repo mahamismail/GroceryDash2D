@@ -66,8 +66,9 @@ func _physics_process(_delta):
 
 		# Don't apply gravity
 		velocity.y = 0 # make y velocity non existent
-
-	else:
+		
+	else: #under normal cirumstances
+		
 		# Check input for horizontal movement
 		if Input.is_action_pressed("move_right"):
 			velocity.x = SPEED;
@@ -98,14 +99,8 @@ func _physics_process(_delta):
 	# Apply friction to x-velocity
 	velocity.x = lerp(velocity.x , 0 , 0.2)
 	
-# Function called when the player's Area2D body enters a collision
-func _on_Area2D_body_entered(body): # Make sure the Area2D of the player extends beyond the Collider2D of the player, else might not get detected.
-
-	# Check if it's the temporary End Wall
-	if (body == Wall2):
-		get_tree().change_scene("res://Src/Scenes/WinScene.tscn");
-
 func make_dizzy(): #if both the two values of the sliders chosen by the player are correct then make the isDizzy false
+	
 	# check if both slider values are correct
 	if isSliderCorrect and isSlider2Correct:
 		print("not dizzy anymore")
@@ -131,11 +126,15 @@ func _on_MouthArea_area_entered(area):
 	var item_sprite = item_node.get_node("Sprite") #Getting the sprite
 	var frame = item_sprite.frame
 
-	if frame == 4: 
+	if frame == 4: #the 4th frame item makes the player float!
 		isFloating = true
 		start_floating()
 		item_node.queue_free()
+		
+		yield(get_tree().create_timer(5.0), "timeout")  # After 5 seconds, stop floating
+		isFloating = false
 
+#SLIDER 1 for dizzy
 func _on_HSlider_value_changed(value):
 	if not isSliderCorrect:
 		if value == 5: #dizzySlider1_value:
@@ -143,6 +142,7 @@ func _on_HSlider_value_changed(value):
 			print("correct slider1")
 	make_dizzy()
 
+#SLIDER 2 for dizzy
 func _on_HSlider2_value_changed(value):
 	if not isSlider2Correct:
 		if value == 8: #dizzySlider2_value:
@@ -150,12 +150,14 @@ func _on_HSlider2_value_changed(value):
 			print("correct slider2")
 	make_dizzy()
 
+#Death
 func _you_died():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
 	queue_free() # make the player invisible.
 	get_tree().change_scene("res://Src/Scenes/LosePage.tscn");
 	pass # Replace with function body.
 
+#Win condition
 func _you_win():
 	$CollisionShape2D.set_deferred("disabled", true) #disable the collider before health goes into negatives
 	queue_free() # make the player invisible.

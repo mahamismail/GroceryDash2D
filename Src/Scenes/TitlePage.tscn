@@ -65,7 +65,7 @@ size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="PlayAgain" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
-margin_right = 318.0
+margin_right = 317.0
 margin_bottom = 33.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
@@ -81,7 +81,7 @@ align = 1
 
 [node name="How  To Play" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
 margin_top = 43.0
-margin_right = 318.0
+margin_right = 317.0
 margin_bottom = 76.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
@@ -96,7 +96,7 @@ text = "How To Play"
 
 [node name="Creds" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
 margin_top = 86.0
-margin_right = 318.0
+margin_right = 317.0
 margin_bottom = 119.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
@@ -112,7 +112,7 @@ align = 1
 
 [node name="Quit" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
 margin_top = 129.0
-margin_right = 318.0
+margin_right = 317.0
 margin_bottom = 162.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )

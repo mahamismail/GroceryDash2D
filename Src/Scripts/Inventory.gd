@@ -46,20 +46,12 @@ func add_item(item):
 				
 				Global.frame_ofLastPicked = frame
 	
-	#TO WIN BY COLLECTING 8 CHEESE (frame 2)
-	#for inv_slot_instance in self.get_children(): #go through all the children of HBoxContainer
-	#		var sprite = inv_slot_instance.get_node("Sprite") #get the sprite of the child slot
-	#		if sprite != null and sprite.frame == 1: #check if the frame is the same of any of these slots
-	#			var label = inv_slot_instance.get_node("Label") # get the label of the slot
-	#			if label.text == str(8): # put it in the label
-	#				Global.emit_signal("you_win")
-	
 	checkAllItemsFound(itemList, Global.items_Required)
 	
 	if allItemsFound == true:
 		Global.emit_signal("you_win")
 
-
+#Checking if all the inventory list items consist of the minimum of everything in items_Required
 func checkAllItemsFound(itemList: Array, items_Required: Array) -> bool:
 
 	var counter = 0
@@ -80,14 +72,14 @@ func checkAllItemsFound(itemList: Array, items_Required: Array) -> bool:
 					allItemsFound = false
 					break
 				else:
-					counter += 1
-					if counter == len(items_Required):
+					counter += 1 # count everytime an item frame and quantity is correct
+					if counter == len(items_Required): #if the length of items_required is same as the count, then its all true,
 						print("Task completed")
 						allItemsFound = true
 	
 	return allItemsFound
 
-
+#part of the THROW ITEM MECHANIC. Removes an item from the itemsList
 func remove_thrown_item():
 	var frame # Variable to store the frame of the item instance
 	frame = Global.frame_ofLastPicked # get the frame from it

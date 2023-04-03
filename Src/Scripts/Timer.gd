@@ -7,19 +7,16 @@ const TIMER_DURATION = 120
 var timer_value = TIMER_DURATION
 var timer_label
 
-# called when the game scene is initialized
 func _ready():
 	# get a reference to the UI label node
 	timer_label = get_node("TimerLabel")
 	# start the timer countdown
 	start_timer()
 
-# function to start the timer countdown
 func start_timer():
 	# call the _process() function every frame
 	set_process(true)
 
-# function called every frame
 func _process(delta):
 	# decrement the timer value by delta (the time since the last frame)
 	timer_value -= delta

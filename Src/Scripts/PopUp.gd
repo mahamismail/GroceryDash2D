@@ -12,10 +12,10 @@ var level = Global.level
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	Global.level = level + 1
+	Global.level = level + 1 #moves to the new level
 	level = Global.level
 	
-	taskLabel.text = "Task " + str(level)
+	taskLabel.text = "Task " + str(level) #Task label
 	
 	if level == 1:
 		add_item()
@@ -73,7 +73,7 @@ func add_item():
 		#Label
 		var label = inv_slot_instance.get_node("Label") #get the label from the slot node.
 
-		while quantity <= min_per_item:
+		while quantity <= min_per_item: #ERROR: this should limit the minimum range of the quantity but it still doesn't work
 			quantity = randi() % max_per_item
 		
 		label.text = str(quantity) + "x" #add the number to the label as a string

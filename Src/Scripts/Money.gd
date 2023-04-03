@@ -9,7 +9,7 @@ func money_lost(cost):
 	Global.money = Global.money - cost
 	
 	if Global.money < 0:
-		Global.money = 0;
+		Global.money = 0; #Making sure it doesn't go into negatives.
 		
 	$Label.text = str(Global.money) + "$"
 	

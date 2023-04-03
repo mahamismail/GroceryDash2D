@@ -34,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Scripts/Granny.gd"
 }, {
-"base": "Resource",
-"class": "Item",
-"language": "GDScript",
-"path": "res://Src/Scripts/Item.gd"
-}, {
 "base": "RigidBody2D",
 "class": "Projectiles",
 "language": "GDScript",
@@ -50,7 +45,6 @@ _global_script_class_icons={
 "Draggables": "",
 "Enemy": "",
 "Granny": "",
-"Item": "",
 "Projectiles": ""
 }
 

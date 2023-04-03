@@ -5,9 +5,11 @@ onready var root = get_tree().get_root() # root of scene tree is retrieved & ass
 onready var scene_root = root.get_child(root.get_child_count() - 1); # scene root is also retrieved & assigned to `scene_root` variable.
 
 func _ready():
+	Global.items_Required = [] #refresh the array everytime player completes task and comes to this page
 	if Global.level == 3:
-		playAgainButton.queue_free()
-	elif Global.level < 3:
+		playAgainButton.hide() # no option play again if on level 3
+	elif Global.level < 3: # can play again if on level 1 or 2
+		playAgainButton.show()
 		playAgainButton.get_node("Label").text = "Next Level"
 
 func _on_quit_pressed(): # QUIT BUTTON quits the game
