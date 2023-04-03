@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Draggables/Groceries.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Draggables/New folder/pixel_food.png" type="Texture" id=1]
 [ext_resource path="res://Src/Scripts/Projectile1.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,9 +17,10 @@ linear_velocity = Vector2( 500, 100 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -1.19209e-07, 0 )
+scale = Vector2( 0.840426, 0.840426 )
 texture = ExtResource( 1 )
-hframes = 5
+hframes = 11
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 896

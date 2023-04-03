@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/accidentally-punching-the-floor-99814.mp3-befd75e6cc981cdaf64bc0bcd4442578.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/accidentally-punching-the-floor-99814.mp3"
+dest_files=[ "res://.import/accidentally-punching-the-floor-99814.mp3-befd75e6cc981cdaf64bc0bcd4442578.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

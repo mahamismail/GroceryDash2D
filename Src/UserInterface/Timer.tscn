@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Src/Scripts/Timer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Font/PaytoneOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Interface/time.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
 
 [node name="Timer" type="Node2D"]
-position = Vector2( 14, 27 )
+position = Vector2( 10, 11 )
 script = ExtResource( 1 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -11,9 +16,15 @@ margin_right = 99.0
 margin_bottom = 39.0
 
 [node name="TimerLabel" type="Label" parent="."]
-margin_left = 19.0
-margin_top = 12.0
-margin_right = 79.0
-margin_bottom = 26.0
+margin_left = 30.0
+margin_top = 7.0
+margin_right = 90.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
 text = "00:00"
 align = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 19, 19 )
+scale = Vector2( 0.0121093, 0.0121093 )
+texture = ExtResource( 3 )

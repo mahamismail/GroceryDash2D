@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mamie_gibberish_1-38387.mp3-14aab277210a5081a340a786edc74585.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/mamie_gibberish_1-38387.mp3"
+dest_files=[ "res://.import/mamie_gibberish_1-38387.mp3-14aab277210a5081a340a786edc74585.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

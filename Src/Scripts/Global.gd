@@ -13,5 +13,27 @@ signal throwing_last_item()
 
 var health = 20
 var money = 200
-var cost = [8, 3, 2, 5, 10]
+var cost = [8, 3, 2, 5, 10, 8, 3, 2, 5, 10]
 var frame_ofLastPicked
+var level = 0
+
+var items_Required = []
+class itemReqObj:
+	var frame
+	var quantity
+
+var is_paused = false
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		is_paused = !is_paused
+		set_pause(is_paused)
+
+func set_pause(pause):
+	if pause == true:
+		get_tree().paused = true
+		# Call any custom pause function here
+	else:
+		get_tree().paused = false
+		# Call any custom unpause function here
+	

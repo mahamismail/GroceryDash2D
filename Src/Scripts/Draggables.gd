@@ -17,7 +17,7 @@ func _ready():
 
 
 func set_frame():
-	get_node("Sprite").frame = randi() % 5 # Set the frame to a random value between 0 and 4
+	get_node("Sprite").frame = randi() % 10 # Set the frame to a random value between 0 and 4
 
 func _process(_delta):
 	

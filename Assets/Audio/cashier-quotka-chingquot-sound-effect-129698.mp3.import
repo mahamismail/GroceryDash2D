@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cashier-quotka-chingquot-sound-effect-129698.mp3-603b581c3fc3f84f4a1b8a38759d2662.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/cashier-quotka-chingquot-sound-effect-129698.mp3"
+dest_files=[ "res://.import/cashier-quotka-chingquot-sound-effect-129698.mp3-603b581c3fc3f84f4a1b8a38759d2662.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Assets/Font/PaytoneOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Src/Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Actors/Cart.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Characters/Player3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Interface/coin.png" type="Texture" id=5]
+[ext_resource path="res://Src/Anims/ActorsBoySteals.tres" type="Animation" id=6]
+[ext_resource path="res://Assets/Audio/accidentally-punching-the-floor-99814.mp3" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
+font_data = ExtResource( 1 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 
@@ -10,10 +18,34 @@
 radius = 20.0
 height = 180.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Animation" type="KinematicBody2D"]
 collision_layer = 0
 collision_mask = 673
 script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BoySteals = ExtResource( 6 )
+
+[node name="Stolen" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2" type="Sprite" parent="Stolen"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -10, -138 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 4
+
+[node name="Label" type="Label" parent="Stolen"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -3.0
+margin_top = -148.0
+margin_right = 37.0
+margin_bottom = -125.0
+custom_fonts/font = SubResource( 6 )
+text = "-25"
+
+[node name="AnimatedSprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.654902 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1, 2.38419e-07 )
@@ -48,6 +80,10 @@ priority = 2.0
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 5, 1.75 )
 polygon = PoolVector2Array( -10, -108.75, -24, -103.75, -16, -64.75, -32, -10.75, -20, 47.25, -15, 78.25, -16, 106.25, -16, 108.25, 8, 108.25, 1, 39.25, -9, -3.75, -2, -45.75, -6, -64.75, 4, -71.75, 0, -110.75 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = 3.0
 
 [connection signal="area_entered" from="MouthArea" to="." method="_on_MouthArea_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

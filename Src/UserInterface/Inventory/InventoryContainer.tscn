@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Src/Scripts/Inventory.gd" type="Script" id=1]
 
-[node name="InventoryContainer" type="Panel"]
+[node name="InventoryContainer" type="Control"]
 margin_left = -1.0
 margin_top = 1.0
 margin_right = 719.0
 margin_bottom = 57.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 40.0
+margin_left = 1.0
 margin_top = -6.0
-margin_right = 741.0
+margin_right = 762.0
 margin_bottom = 61.0
 custom_constants/separation = 84
 script = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/barking-3-47779.mp3-3eaefa4fdc6ade65da1c95cc49179b63.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/barking-3-47779.mp3"
+dest_files=[ "res://.import/barking-3-47779.mp3-3eaefa4fdc6ade65da1c95cc49179b63.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

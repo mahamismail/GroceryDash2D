@@ -1,11 +1,80 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Characters/Dog.png" type="Texture" id=1]
 [ext_resource path="res://Src/Scripts/Dog.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Characters/doggy3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio/barking-5-47778.mp3" type="AudioStream" id=4]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 19, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 38, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 25, 38, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 38, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 75, 38, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 57, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 25, 57, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 57, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 75, 57, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 100, 57, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 76, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 75, 76, 25, 19 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 100, 76, 25, 19 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 30.2153
-height = 81.5533
+radius = 34.189
+height = 49.6717
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 38.3953, 50.4659 )
 
 [node name="Dog" type="KinematicBody2D"]
 collision_layer = 0
@@ -13,19 +82,33 @@ collision_mask = 32
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, 12.75 )
 scale = Vector2( 0.759804, 0.759804 )
 texture = ExtResource( 1 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -4.21993, -2.5 )
+scale = Vector2( 5.84535, 5.63158 )
+frames = SubResource( 16 )
+frame = 1
+playing = true
+
 [node name="BodyShape" type="CollisionShape2D" parent="."]
-position = Vector2( 2.38419e-07, 20 )
+position = Vector2( 2, 16 )
 rotation = -1.57734
 shape = SubResource( 1 )
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 1152
+collision_layer = 1168
 
-[node name="AttackAreaShape" type="CollisionPolygon2D" parent="AttackArea"]
-polygon = PoolVector2Array( -10, -24, -41, -24, -50, -11, -72, 3, -75, 17, -59, 28, -44, 27, -29, 14, -17, 24, -35, 39, -25, 48, -8, 51, 12, 34, 38, 26, 68, 34, 75, 12, 71, 5, 47, 4, 65, -17, 39, -5, 14, -6, -1, -2, -18, -10 )
+[node name="AttackAreaShape" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2( 2, 8 )
+rotation = -1.55876
+scale = Vector2( 1, 1 )
+shape = SubResource( 17 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_Area2D_body_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/person-knocked-down-14798.mp3-4ccd85d847dd59508ad6b9669723106c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/person-knocked-down-14798.mp3"
+dest_files=[ "res://.import/person-knocked-down-14798.mp3-4ccd85d847dd59508ad6b9669723106c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

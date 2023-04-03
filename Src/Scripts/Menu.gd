@@ -15,3 +15,10 @@ func _on_quit_pressed(): # QUIT BUTTON quits the game
 
 func _on_backtomenu_pressed(): #BACK TO MENU BUTTON takes you back to Title Page
 	get_tree().change_scene("res://Src/Scenes/TitlePage.tscn");
+
+func _on_Creds_pressed():
+	get_tree().change_scene("res://Src/Scenes/CreditsPage.tscn");
+
+func _on_PopUpfirst_pressed():
+	get_tree().change_scene("res://Src/Scenes/PopUp.tscn");
+

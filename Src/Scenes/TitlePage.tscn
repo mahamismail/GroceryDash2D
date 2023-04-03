@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Interface/Artboard 9@4x.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Interface/Artboard 9 copy@4x.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Interface/Artboard 10@4x.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Interface/Title.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Interface/How To@4x.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Interface/Artboard 10 copy@4x.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Interface/Artboard 8 copy@4x.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Interface/Artboard 10 copy 2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Interface/Artboard 10 copy 3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Font/PaytoneOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Interface/Title 3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Draggables/New folder/pixel_food.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
@@ -23,50 +24,109 @@ rect_min_size = Vector2( 1024, 576 )
 size_flags_stretch_ratio = 0.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/ColorRect"]
-position = Vector2( 510.473, 287.25 )
+position = Vector2( 510.027, 289.25 )
 scale = Vector2( 0.501735, 0.501735 )
 texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="CenterContainer/ColorRect"]
-visible = false
-margin_left = 456.0
-margin_top = 161.0
-margin_right = 555.0
-margin_bottom = 175.0
-text = "GROCERY DASH"
-align = 1
+[node name="Sprite2" type="Sprite" parent="CenterContainer/ColorRect"]
+position = Vector2( 681.027, 114.25 )
+texture = ExtResource( 6 )
+hframes = 11
+frame = 9
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ColorRect"]
-margin_left = 279.0
-margin_top = 288.0
-margin_right = 1022.0
-margin_bottom = 745.0
-rect_scale = Vector2( 0.3, 0.3 )
+[node name="Sprite3" type="Sprite" parent="CenterContainer/ColorRect"]
+position = Vector2( 567.027, 111.25 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 6 )
+hframes = 11
+frame = 10
+
+[node name="Sprite4" type="Sprite" parent="CenterContainer/ColorRect"]
+position = Vector2( 510.027, 113.25 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 6 )
+hframes = 11
+frame = 6
+
+[node name="Sprite5" type="Sprite" parent="CenterContainer/ColorRect"]
+position = Vector2( 627.027, 109.45 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 6 )
+hframes = 11
+frame = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/ColorRect"]
+margin_left = 283.027
+margin_top = 293.25
+margin_right = 601.027
+margin_bottom = 455.25
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 37
-alignment = 1
+custom_constants/separation = 10
 
-[node name="play" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer"]
-margin_right = 743.0
-margin_bottom = 128.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 8 )
-
-[node name="instructions" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer"]
-margin_top = 165.0
-margin_right = 743.0
-margin_bottom = 293.0
+[node name="PlayAgain" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
+margin_right = 318.0
+margin_bottom = 33.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 
-[node name="quit" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer"]
-margin_top = 330.0
-margin_right = 743.0
-margin_bottom = 457.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 7 )
+[node name="Label" type="Label" parent="CenterContainer/ColorRect/VBoxContainer2/PlayAgain"]
+margin_left = 51.0
+margin_top = 3.0
+margin_right = 142.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+align = 1
 
-[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[node name="How  To Play" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
+margin_top = 43.0
+margin_right = 318.0
+margin_bottom = 76.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/ColorRect/VBoxContainer2/How  To Play"]
+margin_left = 49.0
+margin_top = 3.00003
+margin_right = 148.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "How To Play"
+
+[node name="Creds" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
+margin_top = 86.0
+margin_right = 318.0
+margin_bottom = 119.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/ColorRect/VBoxContainer2/Creds"]
+margin_left = 52.0
+margin_top = 3.00003
+margin_right = 141.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+align = 1
+
+[node name="Quit" type="TextureButton" parent="CenterContainer/ColorRect/VBoxContainer2"]
+margin_top = 129.0
+margin_right = 318.0
+margin_bottom = 162.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/ColorRect/VBoxContainer2/Quit"]
+margin_left = 68.0
+margin_top = 3.00003
+margin_right = 116.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+align = 1
+
+[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer2/PlayAgain" to="." method="_on_PopUpfirst_pressed"]
+[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer2/How  To Play" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer2/Creds" to="." method="_on_Creds_pressed"]
+[connection signal="pressed" from="CenterContainer/ColorRect/VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
